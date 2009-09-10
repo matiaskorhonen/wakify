@@ -2,6 +2,8 @@
 # K.Kodama 2000-05-10
 # This program is distributed freely 
 # in the sense of GNU General Public License or ruby's.
+#
+# Source: http://www.math.kobe-u.ac.jp/~kodama/tips-WakeOnLAN.html
 
 require "socket"
 
