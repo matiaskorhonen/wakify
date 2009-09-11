@@ -1,3 +1,8 @@
+<% title "Sent Magic Packet" %>
 <h1>Done!</h1>
-<p>The WOL function returned:</p>
-<p><%=h @result.to_s %></p>
+<p>The magic packet was sent to the specified host <%=h pluralize(@result, "time") %>.</p>
+<p>You specified the following host:</p>
+<ul>
+  <li>IP: <%=h @ip %></li>
+  <li>MAC: <%=h @mac %></li>
+</ul>

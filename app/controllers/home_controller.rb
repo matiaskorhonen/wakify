@@ -3,7 +3,10 @@ class HomeController < ApplicationController
   end
   
   def wake
-    @result = quickwake(params[:mac], params[:ip])
+    @mac = params[:mac]
+    @ip = params[:ip]
+    
+    @result = quickwake(@mac, @ip)
   end
 
 end

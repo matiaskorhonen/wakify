@@ -1,8 +1,18 @@
+<% title "Home" %>
+
 <h1>Wakify Home</h1>
-<p>Wake a computer without having to register</p>
+<p>Wake a computer without having to register.</p>
 
 <% form_tag :controller => "home", :action => "wake" do -%>
-  <%= text_field_tag "mac" %><br />
-  <%= text_field_tag "ip" %><br />
+  <p>
+    <%= label_tag "mac", "MAC Address" %><br />
+    <%= text_field_tag "mac" %>
+  </p>
+  <p>
+  <%= label_tag "ip", "IP Address or Hostname" %><br />
+  <%= text_field_tag "ip" %>
+  </p>
+  <p>
   <%= submit_tag "Submit" %>
+  </p>
 <% end -%>
