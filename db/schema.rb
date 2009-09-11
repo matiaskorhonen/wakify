@@ -9,7 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090911185729) do
+ActiveRecord::Schema.define(:version => 20090911193525) do
+
+  create_table "computers", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "primary_key"
+    t.text     "description"
+    t.string   "host",         :null => false
+    t.string   "mac",          :null => false
+    t.string   "broadcast_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username"
