@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
     return user if user && user.matching_password?(pass)
   end
   
+  def self.computers
+    return Computer.find_by_user_id(self.id)
+  end
+  
   def matching_password?(pass)
     self.password_hash == encrypt_password(pass)
   end
