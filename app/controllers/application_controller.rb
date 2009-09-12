@@ -14,9 +14,17 @@ class ApplicationController < ActionController::Base
     wol = WakeOnLan.new
     return wol.wake(mac, "255.255.255.255", host)
   end
+  
+  def system_ping(host = "127.0.0.1", count = 3)
+    return `ping #{host} -c #{count}`
+  end
+  
+  def system_wol(host = "127.0.0.1", mac = "", port = 9, command = "wakeonlan")
+    return `#{command} -p #{port} -i #{host} #{mac}`
+  end
 
   def valid_hostname?(address)
     address.to_s.chars.each { |character| return false unless ALLOWED_CHARS.include?(character) }
-    return true    
+    return true
   end
 end
