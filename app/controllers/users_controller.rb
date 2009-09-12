@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  has_many :computers
+  
   def new
     @user = User.new
   end
