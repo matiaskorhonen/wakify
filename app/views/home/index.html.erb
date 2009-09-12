@@ -1,4 +1,11 @@
 <% title "Wakify Home" %>
+<p>
+  <% if logged_in? %>
+    Since you are logged in, you can save computers <%= link_to("here", :controller => "computers", :action => "new") %>.
+  <% else %>
+    <%= link_to "Log in", login_path %>
+  <% end %> 
+</p>
 
 <p>Wake a computer without having to register.</p>
 
@@ -15,3 +22,4 @@
   <%= submit_tag "Submit" %>
   </p>
 <% end -%>
+
