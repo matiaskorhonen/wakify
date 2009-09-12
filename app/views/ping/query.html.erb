@@ -1,2 +1,9 @@
-<% title "Ping " + @host %>
-<p>The host is <%= @result ? "up" : "down" %></p>
+<% title "Ping \"" + @host + "\"" %>
+<% if !@result.nil? %>
+  <p>The host is <%= @result ? "up" : "down" %></p>
+  <pre>
+    <%=h @verbose %>
+  </pre>  
+<% else %>
+  <p>You entered an invalid hostname.  If you believe this to be an error, please contact the administrator.</p>
+<% end%>

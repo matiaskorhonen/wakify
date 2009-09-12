@@ -14,4 +14,9 @@ class ApplicationController < ActionController::Base
     wol = WakeOnLan.new
     return wol.wake(mac, "255.255.255.255", host)
   end
+
+  def valid_hostname?(address)
+    address.to_s.chars.each { |character| return false unless ALLOWED_CHARS.include?(character) }
+    return true    
+  end
 end
