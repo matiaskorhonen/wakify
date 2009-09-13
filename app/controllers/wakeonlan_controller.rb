@@ -4,9 +4,9 @@ class WakeonlanController < ApplicationController
 
   def wake
     @mac = params[:mac]
-    @ip = params[:ip]
+    @host_to_wake = params[:host_to_wake]
     
-    @result = quickwake(@mac, @ip)
+    @result = quickwake(@mac, @host_to_wake)
   end
 
 end
