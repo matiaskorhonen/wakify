@@ -2,6 +2,7 @@ class ComputersController < ApplicationController
   before_filter :login_required
   
   def index
+    @computers = Computer.find_all_by_user_id(session[:user_id])
   end
 
   def show
