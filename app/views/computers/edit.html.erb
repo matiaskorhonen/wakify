@@ -1,2 +1,3 @@
-<h1>Computers#edit</h1>
-<p>Find me in app/views/computers/edit.html.erb</p>
+<% title "Edit: " + @computer.name %>
+
+<%= render :partial => 'form', :locals => { :button_text => "Update" } %>

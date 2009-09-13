@@ -14,6 +14,7 @@ class ComputersController < ApplicationController
   end
 
   def edit
+    @computer = Computer.find(params[:id])
   end
   
   def create
@@ -27,5 +28,18 @@ class ComputersController < ApplicationController
         format.html { render :action => "new" }
       end
     end
-  end 
+  end
+  
+  def update
+    @computer = Computer.find(params[:id])
+    @computer.attributes = params[:computer]
+    
+    respond_to do |format|
+      if @computer.save
+        format.html { render :action => "show" }
+      else
+        format.html { render :action => "edit" }
+      end
+    end
+  end
 end
