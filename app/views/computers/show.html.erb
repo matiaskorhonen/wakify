@@ -15,3 +15,10 @@
   <b>Description:</b>
   <%=h @computer.description %>
 </p>
+
+<p>
+  <%= button_to "Wake", { :controller => "wakeonlan", :action => "wake", :mac => @computer.mac, :host_to_wake => @computer.host }, :confirm => "Are you sure?" %>
+</p>
+<p>
+  <%= button_to "Ping", { :controller => "ping", :action => "query", :host_to_ping => @computer.host } %>
+</p>

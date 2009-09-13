@@ -4,7 +4,7 @@
 <ul id="computers">
   <% for computer in @computers %>
     <li>
-      <%= computer.name %> |
+      <%= link_to(computer.name, :controller => "computers", :action => "show", :id => computer.id) %>: 
       <%= link_to("Wake", :controller => "wakeonlan", :action => "wake", :host_to_wake => computer.host, :mac => computer.mac) %> |
       <%= link_to("Ping", :controller => "ping", :action => "query", :host_to_ping => computer.host) %>
     </li>
