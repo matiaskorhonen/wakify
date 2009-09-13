@@ -15,8 +15,8 @@ class ApplicationController < ActionController::Base
     return wol.wake(mac, "255.255.255.255", host)
   end
   
-  def system_ping(host = "127.0.0.1", count = 3)
-    return `ping #{host} -c #{count}`
+  def system_ping(host = "127.0.0.1", count = 3, command = "ping")
+    return `#{command} #{host} -c #{count}`
   end
   
   def system_wol(host = "127.0.0.1", mac = "", port = 9, command = "wakeonlan")

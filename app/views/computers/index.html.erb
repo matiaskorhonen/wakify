@@ -1,8 +1,8 @@
-<h1>Computers</h1>
+<% title "Computers" %>
 <p>Your computers</p>
 
 <ul id="computers">
   <% for computer in @computers %>
-    <li><%= computer.name %></li>
+    <li><%= computer.name %> | <%# link_to("Wake", :controller => "wol", :action => "system_wol" %> | <%= link_to("Ping", :controller => "ping", :action => "query", :host_to_ping => computer.host) %></li>
   <% end %>
 </ul>

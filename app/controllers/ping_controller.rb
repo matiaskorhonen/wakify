@@ -3,7 +3,7 @@ class PingController < ApplicationController
   end
 
   def query
-    @host = params[:host]
+    @host = params[:host_to_ping]
     
     if valid_hostname?(@host)
       @verbose = `ping #{@host} -c 3`

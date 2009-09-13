@@ -9,17 +9,6 @@
 
 <p>Wake a computer without having to register.</p>
 
-<% form_tag :controller => "home", :action => "wake" do -%>
-  <p>
-    <%= label_tag "mac", "MAC Address" %><br />
-    <%= text_field_tag "mac" %>
-  </p>
-  <p>
-  <%= label_tag "ip", "IP Address or Hostname" %><br />
-  <%= text_field_tag "ip" %>
-  </p>
-  <p>
-  <%= submit_tag "Submit" %>
-  </p>
-<% end -%>
+<%= render :partial => '/wakeonlan/wakehost' %>
+
 
