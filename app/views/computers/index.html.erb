@@ -3,6 +3,10 @@
 
 <ul id="computers">
   <% for computer in @computers %>
-    <li><%= computer.name %> | <%# link_to("Wake", :controller => "wol", :action => "system_wol" %> | <%= link_to("Ping", :controller => "ping", :action => "query", :host_to_ping => computer.host) %></li>
+    <li>
+      <%= computer.name %> |
+      <%= link_to("Wake", :controller => "wakeonlan", :action => "wake", :host_to_wake => computer.host, :mac => computer.mac) %> |
+      <%= link_to("Ping", :controller => "ping", :action => "query", :host_to_ping => computer.host) %>
+    </li>
   <% end %>
 </ul>
