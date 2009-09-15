@@ -1,6 +1,6 @@
-<% title "Ping \"" + @host + "\"" %>
+<% title "Ping " + @host %>
 <% if !@result.nil? %>
-  <p>The host is <%= @result ? "up" : "down" %></p>
+  <p style="color: <%= @result ? "green" : "red" %>">The host is <strong><%= @result ? "up" : "down" %></strong></p>
   <pre>
     <%=h @verbose %>
   </pre>  

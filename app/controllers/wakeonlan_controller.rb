@@ -4,8 +4,13 @@ class WakeonlanController < ApplicationController
   end
 
   def wake
-    @mac = params[:mac]
-    @host_to_wake = params[:host_to_wake]
+    if params[:computer].nil?
+      @mac = params[:mac]
+      @host_to_wake = params[:host_to_wake]
+    else
+      @mac = params[:computer][:mac]
+      @host_to_wake = params[:computer][:host]
+    end
     
     @result = quickwake(@mac, @host_to_wake)
   end
@@ -15,10 +20,6 @@ protected
   def quickwake(mac, host)
     wol = WakeOnLan.new
     return wol.wake(mac, "255.255.255.255", host)
-  end
-  
-  def system_ping(host = "127.0.0.1", count = 3, command = "ping")
-    return `#{command} #{host} -c #{count}`
   end
   
   def system_wol(host = "127.0.0.1", mac = "", port = 9, command = "wakeonlan")

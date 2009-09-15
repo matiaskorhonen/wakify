@@ -3,10 +3,15 @@
 
 <ul id="computers">
   <% for computer in @computers %>
-    <li>
-      <%= link_to(computer.name, :controller => "computers", :action => "show", :id => computer.id) %>:
-      <%= button_to "Wake", { :controller => "wakeonlan", :action => "wake", :mac => computer.mac, :host_to_wake => computer.host }, :confirm => "Are you sure?" %>
-      <%= button_to "Ping", { :controller => "ping", :action => "query", :host_to_ping => computer.host } %>
-    </li>
+    <% form_for :computer, computer, :url => { :action => "wake", :controller => "wakeonlan" } do |f| %>
+      <h2><%= computer.name %></h2>
+      <%= f.hidden_field :mac %>
+      <%= f.hidden_field :host %>
+      <%= f.submit "Wake" %>
+    <% end %>
+    <% form_for :computer, computer, :url => {:action => "query", :controller => "ping"} do |f| %>
+      <%= f.hidden_field :host %>
+      <%= f.submit "Ping" %>
+    <% end %>
   <% end %>
 </ul>
