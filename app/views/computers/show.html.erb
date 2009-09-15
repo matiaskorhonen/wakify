@@ -22,3 +22,9 @@
 <p>
   <%= button_to "Ping", { :controller => "ping", :action => "query", :host_to_ping => @computer.host } %>
 </p>
+
+<% form_for :computer, @computer, :url => {:action => "pingorwake"} do |f| %>
+  <%= f.hidden_field :id %>
+  <%= f.submit "Wake"%>
+  <%= f.submit "Ping" %>
+<% end %>
