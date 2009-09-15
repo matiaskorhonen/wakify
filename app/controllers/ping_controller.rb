@@ -3,10 +3,10 @@ class PingController < ApplicationController
   end
 
   def query
-    if params[:computer].nil?
+    if params[:id].nil?
       @host = params[:host_to_ping]
     else
-      @host = params[:computer][:host]
+      @host = Computer.find(params[:id]).host
     end
     
     if valid_hostname?(@host)

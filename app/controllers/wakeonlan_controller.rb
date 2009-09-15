@@ -1,15 +1,17 @@
 class WakeonlanController < ApplicationController
   require 'wakeonlan'
+  
   def index
   end
 
   def wake
-    if params[:computer].nil?
+    if params[:id].nil?
       @mac = params[:mac]
       @host_to_wake = params[:host_to_wake]
     else
-      @mac = params[:computer][:mac]
-      @host_to_wake = params[:computer][:host]
+      c = Computer.find(params[:id])
+      @mac = c.mac
+      @host_to_wake = c.host
     end
     
     @result = quickwake(@mac, @host_to_wake)

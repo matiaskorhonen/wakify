@@ -1,17 +1,15 @@
 <% title "Computers" %>
 <p>Your computers</p>
 
-<ul id="computers">
   <% for computer in @computers %>
-    <% form_for :computer, computer, :url => { :action => "wake", :controller => "wakeonlan" } do |f| %>
-      <h2><%= computer.name %></h2>
-      <%= f.hidden_field :mac %>
-      <%= f.hidden_field :host %>
-      <%= f.submit "Wake" %>
-    <% end %>
-    <% form_for :computer, computer, :url => {:action => "query", :controller => "ping"} do |f| %>
-      <%= f.hidden_field :host %>
+    <h2><%= link_to(computer.name, :action => "show", :id => computer.id) %></h2>
+    <p>
+      Host: <%=h computer.host %><br />
+      MAC: <%=h computer.mac %>
+    </p>
+    <% form_for :computer, computer, :url => {:action => "pingorwake"} do |f| %>
+      <%= f.hidden_field :id %>
+      <%= f.submit "Wake"%>
       <%= f.submit "Ping" %>
     <% end %>
   <% end %>
-</ul>

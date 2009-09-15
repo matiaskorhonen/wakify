@@ -44,12 +44,10 @@ class ComputersController < ApplicationController
   end
   
   def pingorwake
-    @computer = Computer.find(params[:computer][:id])
-
-    if params[:submit] == "Wake"
-      redirect_to :action => "wake", :controller => "wakeonlan"
+    if params[:commit] == "Wake"
+      redirect_to :action => "wake", :controller => "wakeonlan", :id => params[:computer][:id]
     else
-      redirect_to :action => "query", :controller => "ping"
+      redirect_to :action => "query", :controller => "ping", :id => params[:computer][:id]
     end
   end
 end
