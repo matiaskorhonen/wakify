@@ -8,13 +8,18 @@ class WakeonlanController < ApplicationController
     if params[:id].nil?
       @mac = params[:mac]
       @host_to_wake = params[:host_to_wake]
+      @result = quickwake(@mac, @host_to_wake)
     else
       c = Computer.find(params[:id])
-      @mac = c.mac
-      @host_to_wake = c.host
+      if c.access_allowed?(current_user)
+        @mac = c.mac
+        @host_to_wake = c.host
+        @result = quickwake(@mac, @host_to_wake)
+      else
+        flash[:error] = "Something went wrong, it seems that you are not allowed to wake that host!"
+        redirect_to :action => "index", :controller => "computers"
+      end
     end
-    
-    @result = quickwake(@mac, @host_to_wake)
   end
 
 protected
