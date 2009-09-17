@@ -130,3 +130,27 @@ label {
 #navigation a:hover {
   color: #fff;
 }
+
+#users {
+  color: #eeeeec;
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 8pt;
+}
+
+#users a {
+  background: #204a87;
+  border: 2px solid #729fcf;
+  padding: 3px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 8pt;
+}
+
+#users a:hover {
+  background: #a5b9cf;
+  color: #000;
+}

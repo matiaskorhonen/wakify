@@ -10,6 +10,15 @@
   <body>
     <div id="wrapper">
       <div id="header">
+        <div id="users">
+          <% if logged_in? %>
+            Welcome <strong><%= current_user.username %>!</strong>
+            <%= link_to "Log out", logout_path %>
+          <% else %>
+            <%= link_to "Sign up", signup_path %>
+            <%= link_to "Log in", login_path %>
+          <% end %>
+        </div>
         <p class="slogan">A simple WOL app</p>
       </div>
       <div id="navigation">
