@@ -8,7 +8,9 @@ class ComputersController < ApplicationController
 
   def show
     @computer = Computer.find(params[:id])
-    @links = [{"uri" => "/computers", "label" => "List"}, {"uri" => "/computers/new", "label" => "Create"}, {"uri" => "/computers/edit/" + params[:id], "label" => "Edit" }]
+    @links = [{"uri" => "/computers", "label" => "List"},
+              {"uri" => "/computers/new", "label" => "Create"},
+              {"uri" => "/computers/edit/" + params[:id], "label" => "Edit" }]
   end
 
   def new
@@ -49,9 +51,9 @@ class ComputersController < ApplicationController
   
   def pingorwake
     if params[:commit] == "Wake"
-      redirect_to :action => "wake", :controller => "wakeonlan", :id => params[:computer][:id]
+      redirect_to :action => "wake_computer", :controller => "wakeonlan", :id => params[:computer][:id]
     else
-      redirect_to :action => "query", :controller => "ping", :id => params[:computer][:id]
+      redirect_to :action => "ping_computer", :controller => "ping", :id => params[:computer][:id]
     end
   end
 end
