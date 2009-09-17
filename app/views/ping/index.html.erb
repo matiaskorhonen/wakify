@@ -1,7 +1,6 @@
 <% title "Ping" %>
-<p>Find me in app/views/ping/index.html.erb</p>
 
-<% form_tag :controller => "ping", :action => "query" do -%>
+<% form_tag :controller => "ping", :action => "quickping" do -%>
   <p>
     <%= label_tag "host_to_ping", "Host to ping" %><br />
     <%= text_field_tag "host_to_ping" %>
