@@ -77,6 +77,10 @@ label {
   border: solid 1px #C66;
 }
 
+#flash_notice pre {
+  font-size: 8pt;
+}
+
 .fieldWithErrors {
   display: inline;
 }
