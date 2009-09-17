@@ -1,10 +1,20 @@
 development:
   domain: localhost:3000
   sitename: Wakify (dev)
+  wol_port: 9
+  wol_command: wakeonlan
+  ping_command: ping
 
 test:
   domain: test.host
+  sitename: Wakify (test)
+  wol_port: 9
+  wol_command: wakeonlan
+  ping_command: ping
 
 production:
   domain: wakify.com
   sitename: Wakify
+  wol_port: 9
+  wol_command: wakeonlan
+  ping_command: ping
