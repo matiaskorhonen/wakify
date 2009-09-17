@@ -10,10 +10,29 @@ a img {
 
 a {
   color: #0000FF;
+  text-decoration: underline;
 }
+
+a:hover {
+  text-decoration: none;
+}
+
 
 h1 {
   margin-top: 0;
+}
+
+h2 {
+  font-family: Georgia, serif;
+}
+
+h2 a {
+  color: #000;
+  text-decoration: none;
+}
+
+h2 a:hover {
+  text-decoration: underline;
 }
 
 label {
@@ -44,6 +63,8 @@ label {
 #flash_notice, #flash_error {
   padding: 5px 8px;
   margin: 10px 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
 
 #flash_notice {
@@ -153,4 +174,21 @@ label {
 #users a:hover {
   background: #a5b9cf;
   color: #000;
+}
+
+div.computers, form {
+  background: #d3d7cf;
+  padding: 10px;
+  margin-bottom: 20px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+div.computers h2, form h2 {
+  margin-top: 0;
+}
+
+span.address {
+  font-family: "Courier New", "Courier", monospace;
+  font-size: 110%;
 }
