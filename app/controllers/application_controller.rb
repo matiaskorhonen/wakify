@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
 
   def valid_hostname?(address)
-    address.to_s.chars.each { |character| return false unless ALLOWED_CHARS.include?(character) }
-    return true
+    hostname_regex = /(^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$)|(^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$)/
+    return hostname_regex.match(address)
   end
 end
