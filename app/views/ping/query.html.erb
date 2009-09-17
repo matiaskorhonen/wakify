@@ -1,9 +1,0 @@
-<% title "Ping " + @host_to_ping.to_s %>
-<% if !@result.nil? %>
-  <p style="color: <%= @result ? "green" : "red" %>">The host is <strong><%= @result ? "up" : "down" %></strong></p>
-  <pre>
-    <%=h @verbose %>
-  </pre>  
-<% else %>
-  <p>You entered an invalid hostname.  If you believe this to be an error, please contact the administrator.</p>
-<% end%>
