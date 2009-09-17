@@ -3,18 +3,22 @@ class ComputersController < ApplicationController
   
   def index
     @computers = Computer.find_all_by_user_id(session[:user_id])
+    @links = [{"uri" => "/computers/new", "label" => "Create"}]
   end
 
   def show
     @computer = Computer.find(params[:id])
+    @links = [{"uri" => "/computers", "label" => "List"}, {"uri" => "/computers/new", "label" => "Create"}, {"uri" => "/computers/edit/" + params[:id], "label" => "Edit" }]
   end
 
   def new
     @computer = Computer.new
+    @links = [{"uri" => "/computers", "label" => "List"}]
   end
 
   def edit
     @computer = Computer.find(params[:id])
+    @links = [{"uri" => "/computers", "label" => "List"}, {"uri" => "/computers/new", "label" => "Create"}]
   end
   
   def create

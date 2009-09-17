@@ -24,6 +24,15 @@
       <div id="navigation">
         <%= navigation("home", "computers", "wakeonlan") %>
       </div>
+      <% unless @links.nil? %>
+        <div id="subnavigation">
+          <ul>
+            <% for link in @links do %>
+              <li><%= link_to link["label"], link["uri"] %></li>
+            <% end %> 
+          </ul>
+        </div>
+      <% end %>
       <div id="container">
         <%- flash.each do |name, msg| -%>
           <%= content_tag :div, msg, :id => "flash_#{name}" %>

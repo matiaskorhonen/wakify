@@ -132,12 +132,12 @@ label {
   background: #8f5902;
 }
 
-#navigation ul {
+#navigation ul, #subnavigation ul {
   margin: 0;
   padding: 4px 20px 6px 20px;
 }
 
-#navigation li {
+#navigation li, #subnavigation li {
   display: inline;
 }
 
@@ -149,6 +149,20 @@ label {
 }
 
 #navigation a:hover {
+  color: #fff;
+}
+
+#subnavigation {
+  background: #e9b96e;
+}
+
+#subnavigation a:link, #subnavigation a:visited {
+  color: #8f5902;
+  text-decoration: none;
+  padding: 0 10px 0 0;
+}
+
+#subnavigation a:hover {
   color: #fff;
 }
 
