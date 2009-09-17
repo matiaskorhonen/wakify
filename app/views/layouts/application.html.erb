@@ -7,17 +7,24 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="container">
-      <%= navigation("home", "computers", "wakeonlan") %>
-      <%- flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <%- end -%>
-      
-      <%- if show_title? -%>
-        <h1><%=h yield(:title) %></h1>
-      <%- end -%>
-      
-      <%= yield %>
+    <div id="wrapper">
+      <div id="header">
+        <p class="slogan">A simple WOL app</p>
+      </div>
+      <div id="navigation">
+        <%= navigation("home", "computers", "wakeonlan") %>
+      </div>
+      <div id="container">
+        <%- flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <%- end -%>
+        
+        <%- if show_title? -%>
+          <h1><%=h yield(:title) %></h1>
+        <%- end -%>
+        
+        <%= yield %>
+      </div>  
     </div>
   </body>
 </html>
