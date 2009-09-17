@@ -8,6 +8,11 @@ h2. Requirements
 You will need to have wakeonlan installed on your computer. The program is
 available in most distributions' repositories.
 
+h2. Thanks
+
+Thanks to Ryan Bates for his nifty_generators and thanks to Joao Cardoso for 
+his support and advice.
+
 h2. License
 
 Copyright (C) 2009 Matias Korhonen
