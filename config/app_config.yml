@@ -1,8 +1,10 @@
 development:
   domain: localhost:3000
+  sitename: Wakify (dev)
 
 test:
   domain: test.host
 
 production:
-  domain: example.com
+  domain: wakify.com
+  sitename: Wakify
