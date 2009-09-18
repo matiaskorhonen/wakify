@@ -1,13 +1,15 @@
 <% title "Wakify Home" %>
-<p>
-  <% if logged_in? %>
-    Since you are logged in, you can save computers <%= link_to("here", :controller => "computers", :action => "new") %>.
-  <% else %>
-    <%= link_to "Log in", login_path %>
-  <% end %> 
-</p>
 
-<p>Wake a computer without having to register.</p>
+<% if !logged_in? %>
+  <p>
+    <strong>Wakify</strong> is a simple web pllication that lets you send
+    Wake-On-LAN magic packets to computers. Once registered, you can also save
+    hosts so that you don't have to manually enter their MAC and IP addresses.
+  </p>
+  <p>
+    As an added feature you can also ping hosts to see if they are up.
+  </p>
+<% end %> 
 
 <%= render :partial => '/wakeonlan/wakehost' %>
 
