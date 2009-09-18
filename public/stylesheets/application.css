@@ -182,6 +182,20 @@ label {
   color: #000;
 }
 
+a.accountLink {
+  color: #fff !important;
+  text-decoration: none !important;
+  border: none !important;
+  background: none !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+a:hover.accountLink {
+  text-decoration: underline !important;
+}
+
 div.computers, form {
   background: #d3d7cf;
   padding: 10px;
