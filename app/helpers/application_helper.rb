@@ -5,8 +5,9 @@ module ApplicationHelper
   def navigation(*controllers)
     xhtml = "<ul>\n"
     
-    controllers.each do |controller|
-      xhtml << "\t<li>" + link_to(controller.capitalize, "/#{controller}") + "</li>\n"
+    controllers.each do |c|
+      
+      xhtml << "\t<li>" + link_to(c["label"], "/" + c["controller"]) + "</li>\n"
     end
     
     xhtml << "</ul>"
