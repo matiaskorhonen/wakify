@@ -1,30 +1,22 @@
 h1. Wakify
 
-Wakify will be an easy to use web application that let's you wake your computers
-from anywhere in the world.
+Wakify will be an easy to use web application that let's you wake your computers from anywhere in the world.
 
 h2. Requirements
 
-You will need to have wakeonlan installed on your computer. The program is
-available in most distributions' repositories.
+You will need to have wakeonlan installed on your computer. The program is available in most distributions' repositories.
 
 h2. Thanks
 
-Thanks to Ryan Bates for his nifty_generators and thanks to Joao Cardoso for 
-his support and advice.
+Thanks to Ryan Bates for his nifty_generators and thanks to Joao Cardoso for his support and advice.
 
 h2. License
 
 Copyright (C) 2009 Matias Korhonen
 
-This program is free software: you can redistribute it and/or modify it under
-the terms of the GNU General Public License as published by the Free Software
-Foundation, either version 3 of the License, or (at your option) any later
-version.
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later version.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE. See the GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with
-this program. If not, see http://www.gnu.org/licenses/
+You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/
