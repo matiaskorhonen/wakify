@@ -35,10 +35,12 @@ class ComputersController < ApplicationController
     @computer.attributes = params[:computer]
     
     respond_to do |format|
-      if @computer.save
-        format.html { render :action => "show" }
-      else
-        format.html { render :action => "edit" }
+      if @cumputer.access_allowed(current_user)
+        if @computer.save
+          format.html { render :action => "show" }
+        else
+          format.html { render :action => "edit" }
+        end
       end
     end
   end
