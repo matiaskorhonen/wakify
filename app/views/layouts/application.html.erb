@@ -22,17 +22,8 @@
         <p class="slogan">A simple WOL app</p>
       </div>
       <div id="navigation">
-        <%= navigation("home", "computers", "wakeonlan", "ping") %>
+        <%= navigation({"controller" => "home", "label" => "Home"}, {"controller" => "computers", "label" => "Computers"}, {"controller" => "wakeonlan", "label" => "Wake-On-LAN"}, {"controller" => "ping", "label" => "Ping"}) %>
       </div>
-      <% unless @links.nil? %>
-        <div id="subnavigation">
-          <ul>
-            <% for link in @links do %>
-              <li><%= link_to link["label"], link["uri"] %></li>
-            <% end %> 
-          </ul>
-        </div>
-      <% end %>
       <div id="container">
         <%- flash.each do |name, msg| -%>
           <%= content_tag :div, msg, :id => "flash_#{name}" %>

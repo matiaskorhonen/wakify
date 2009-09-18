@@ -1,5 +1,5 @@
 <% title "Computers" %>
-<p>Your computers</p>
+<p>Create <%= link_to("new computer", :action => "new") %></p>
 
   <% for computer in @computers %>
     <div class="computers">
@@ -12,6 +12,7 @@
         <%= f.hidden_field :id %>
         <%= f.submit "Wake"%>
         <%= f.submit "Ping" %>
+        <span class="editLink"><%= link_to("Edit", :action => "edit", :id => computer.id) %></span>
       <% end %>
     </div>
   <% end %>

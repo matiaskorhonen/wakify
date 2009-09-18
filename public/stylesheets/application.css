@@ -134,14 +134,16 @@ label {
 
 #navigation {
   background: #8f5902;
+  border-top: 1px solid #214203;
+  border-bottom: 5px solid #e9b96e;
 }
 
-#navigation ul, #subnavigation ul {
+#navigation ul {
   margin: 0;
   padding: 4px 20px 6px 20px;
 }
 
-#navigation li, #subnavigation li {
+#navigation li {
   display: inline;
 }
 
@@ -153,20 +155,6 @@ label {
 }
 
 #navigation a:hover {
-  color: #fff;
-}
-
-#subnavigation {
-  background: #e9b96e;
-}
-
-#subnavigation a:link, #subnavigation a:visited {
-  color: #8f5902;
-  text-decoration: none;
-  padding: 0 10px 0 0;
-}
-
-#subnavigation a:hover {
   color: #fff;
 }
 
