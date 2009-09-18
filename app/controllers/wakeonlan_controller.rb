@@ -28,7 +28,7 @@ class WakeonlanController < ApplicationController
       flash[:error] = "Something went wrong, it seems that you are not allowed to wake that host!"
     end
     
-    redirect_to :action => "index", :controller => "computers"
+    redirect_to request.referer
   end
 
 protected
