@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090918133543) do
+ActiveRecord::Schema.define(:version => 20090918190720) do
 
   create_table "computers", :force => true do |t|
     t.integer  "user_id"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(:version => 20090918133543) do
     t.integer  "port"
   end
 
+  create_table "pages", :force => true do |t|
+    t.string   "name"
+    t.string   "permalink"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "email"
@@ -29,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20090918133543) do
     t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",         :default => false
   end
 
 end
