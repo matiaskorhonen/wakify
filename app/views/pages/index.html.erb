@@ -1,0 +1,11 @@
+<% title "Pages" %>
+
+<ul>
+  <% for page in @pages %>
+    <li><%= link_to page.name, static_path(page.permalink) %></li>
+  <% end %>
+</ul>
+
+<% if admin? %>
+  <p><%= link_to "New Page", new_page_path %></p>
+<% end %>
