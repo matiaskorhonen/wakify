@@ -1,12 +1,17 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :pages
+
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.logout 'logout', :controller => 'sessions', :action => 'destroy'
   map.login 'login', :controller => 'sessions', :action => 'new'
+  map.static 'static/:permalink', :controller => 'pages', :action => 'show'
+  map.account 'account', :controller => 'users', :action => 'edit'
   
   map.resources :sessions
   map.resources :users
   map.resources :computers
   map.resources :wakeonlan
+  map.resources :pages
 
   # The priority is based upon order of creation: first created -> highest priority.
 
