@@ -12,7 +12,7 @@
       <div id="header">
         <div id="users">
           <% if logged_in? %>
-            Welcome <strong><%= current_user.username %>!</strong>
+            Welcome <%= link_to current_user.username, account_path, :class => "accountLink" %>!</strong>
             <%= link_to "Log out", logout_path %>
           <% else %>
             <%= link_to "Sign up", signup_path %>
