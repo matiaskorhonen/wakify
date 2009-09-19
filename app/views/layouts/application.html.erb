@@ -5,6 +5,7 @@
     <title><%= h(yield(:title) || APP_CONFIG[:sitename]) %></title>
     <link rel="icon" type="image/png" href="/favicon.png" />
     <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag 'jquery', 'application' %>
     <%= yield(:head) %>
   </head>
   <body>
