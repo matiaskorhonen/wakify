@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :login_required, :except => [:new, :create]
+  before_filter :login_required, :except => [:new, :create, :activate]
+  
   def new
     @user = User.new
   end
@@ -11,8 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      session[:user_id] = @user.id
-      flash[:notice] = "Thank you for signing up! You are now logged in."
+      flash[:notice] = "Thank you for signing up! Please check your email for the validation link."
       redirect_to root_url
     else
       render :action => 'new'
@@ -34,6 +34,16 @@ class UsersController < ApplicationController
         flash[:error] = "Something went wrong"
       end
       format.html { render :action => "edit" }
+    end
+  end
+  
+  def activate
+    @user= User.find_by_activation_code(params[:activation_code])
+    raise ActiveRecord::RecordNotFound, "User not found" if @user.nil?
+    
+    unless @user.nil?
+      @user.activation_code = nil
+      @user.save
     end
   end
 end

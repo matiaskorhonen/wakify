@@ -2,3 +2,7 @@ Welcome to <%= APP_CONFIG[:sitename] %>!
 
 Username: <%=h @user.username %>
 Email: <%=h @user.email %>
+
+Please activate your account by going to the following address:
+
+<%= "http://#{APP_CONFIG[:domain]}/activate/#{@user.activation_code}" %>

@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login 'login', :controller => 'sessions', :action => 'new'
   map.static 'static/:permalink', :controller => 'pages', :action => 'show'
   map.account 'account', :controller => 'users', :action => 'edit'
+  map.activate 'activate/:activation_code', :controller => 'users', :action => 'activate'
   
   map.resources :sessions
   map.resources :users
