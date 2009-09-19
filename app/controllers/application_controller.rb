@@ -29,9 +29,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
   def valid_hostname?(address)
     hostname_regex = /(^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$)|(^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$)/
     return hostname_regex.match(address)
+  end
+  
+  def valid_mac?(mac)
+    mac_regex = /^(\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2})?$/
+    return mac_regex.match(mac)
   end
 end
