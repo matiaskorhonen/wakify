@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   end
   
   def activated?
-    self.activation_code?
+    self.activation_code.nil?
   end
   
   private

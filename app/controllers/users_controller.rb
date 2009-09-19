@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :login_required, :except => [:new, :create, :activate]
+  before_filter :login_required, :except => [:new, :create, :activate, :resend_activation, :send_activation]
   
   def new
     @user = User.new
@@ -38,12 +38,28 @@ class UsersController < ApplicationController
   end
   
   def activate
-    @user= User.find_by_activation_code(params[:activation_code])
+    @user = User.find_by_activation_code(params[:activation_code])
     raise ActiveRecord::RecordNotFound, "No such activation code" if @user.nil?
     
     unless @user.nil?
       @user.activation_code = nil
       @user.save
     end
+  end
+  
+  def resend_activation
+  end
+  
+  def send_activation
+    user = User.find_by_email(params[:email])
+    
+    if !user.activated?
+      Mailer.deliver_welcome_email(user)
+      flash[:notice] = "Activation email sent"
+    else
+      flash[:error] = "You already activated your account."
+    end
+    
+    redirect_to resend_activation_path
   end
 end

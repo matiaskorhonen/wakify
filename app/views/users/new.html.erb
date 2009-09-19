@@ -1,6 +1,12 @@
 <% title "Sign up" %>
 
-<p>Already have an account? <%= link_to "Log in", login_path %>.</p>
+<p>
+  Already have an account? <%= link_to "Log in", login_path %>.
+</p>
+
+<p>
+  Lost your activation link? <%= link_to "Resend activation", resend_activation_path %>.
+</p>
 
 <% form_for @user do |f| %>
   <%= f.error_messages %>
@@ -10,7 +16,8 @@
   </p>
   <p>
     <%= f.label :email, "Email Address" %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :email %><br />
+    This email address will be used to activate your account, so try and get it right.
   </p>
   <p>
     <%= f.label :password %><br />
