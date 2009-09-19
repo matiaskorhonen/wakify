@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   
   def activate
     @user= User.find_by_activation_code(params[:activation_code])
-    raise ActiveRecord::RecordNotFound, "User not found" if @user.nil?
+    raise ActiveRecord::RecordNotFound, "No such activation code" if @user.nil?
     
     unless @user.nil?
       @user.activation_code = nil
