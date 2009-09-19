@@ -1,18 +1,15 @@
 class PingController < ApplicationController
+  before_filter :quickping_validation, :only => [:quickping]
+  
   def index
   end
   
   def quickping
     @host_to_ping = params[:host_to_ping]
     
-    if valid_hostname?(@host_to_ping) && !@host_to_ping.nil?
-      @verbose = system_ping(@host_to_ping)
-      p = Net::Ping::External.new(@host_to_ping)
-      @result = p.ping
-    else
-      flash[:error] = "You entered an invalid hostname."
-      redirect_to :action => "index"
-    end
+    @verbose = system_ping(@host_to_ping)
+    p = Net::Ping::External.new(@host_to_ping)
+    @result = p.ping
   end
   
   def ping_computer
@@ -31,5 +28,16 @@ protected
 
   def system_ping(host = "127.0.0.1", count = 3, command = APP_CONFIG[:ping_command])
     return `#{command} #{host} -c #{count}`
+  end
+  
+  def quickping_validation
+    valid_hostname = valid_hostname?(params[:host_to_ping])
+    
+    if !valid_hostname
+      flash[:error] = "You need to enter a valid host!"
+      respond_to do |format|
+        format.html { redirect_to :controller => "ping" }
+      end
+    end
   end
 end

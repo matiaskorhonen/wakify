@@ -1,4 +1,6 @@
 class WakeonlanController < ApplicationController
+  before_filter :quickwake_validation, :only => [:quickwake]
+  
   def index
   end
 
@@ -7,12 +9,7 @@ class WakeonlanController < ApplicationController
     @host_to_wake = params[:host_to_wake]
     @port = params[:port].to_i ||= APP_CONFIG[:wol_port]
     
-    if @mac.empty? || @host_to_wake.empty? || !valid_hostname?(@host_to_wake)
-      flash[:error] = "You should enter a valid hostname or IP address"
-      redirect_to :action => "index"
-    else
-      @result = wakehost(@mac, @host_to_wake, @port)
-    end
+    @result = wakehost(@mac, @host_to_wake, @port)
   end
   
   def wake_computer
@@ -30,5 +27,17 @@ protected
 
   def wakehost(mac, host, port=APP_CONFIG[:wol_port], command = APP_CONFIG[:wol_command])
     return `#{command} -p #{port} -i #{host} #{mac}`
+  end
+  
+  def quickwake_validation
+    valid_mac = valid_mac?(params[:mac])
+    valid_hostname = valid_hostname?(params[:host_to_wake])
+    
+    if !valid_mac || !valid_hostname
+      flash[:error] = "You need to enter a valid host and MAC address!"
+      respond_to do |format|
+        format.html { redirect_to :controller => "wakeonlan" }
+      end
+    end
   end
 end
