@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     user = User.authenticate(params[:login], params[:password])
     if user
-      if user.activation_code.nil?
+      if user.activated?
         session[:user_id] = user.id
         flash[:notice] = "Logged in successfully."
         redirect_to_target_or_default(root_url)

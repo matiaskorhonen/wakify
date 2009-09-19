@@ -29,8 +29,8 @@ class User < ActiveRecord::Base
     self.password_hash == encrypt_password(pass)
   end
   
-  def self.admin?
-    self.admin
+  def activated?
+    self.activation_code?
   end
   
   private
