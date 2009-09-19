@@ -16,7 +16,7 @@ class PingController < ApplicationController
   end
   
   def ping_computer
-    c = Computer.find(params[:id])
+    c = current_user.computers.find(params[:id])
     if c.access_allowed?(current_user)
       status = Net::Ping::External.new(c.host) ? "up" : "down"
       flash[:notice] = "<p>The host is #{status}.</p><pre>#{system_ping(c.host)}</pre>"

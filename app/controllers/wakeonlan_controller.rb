@@ -16,7 +16,7 @@ class WakeonlanController < ApplicationController
   end
   
   def wake_computer
-    c = Computer.find(params[:id])
+    c = current_user.computers.find(params[:id])
     if c.access_allowed?(current_user)
       flash[:notice] = wakehost(c.mac, c.host, c.port)
     else

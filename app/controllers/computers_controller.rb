@@ -2,11 +2,11 @@ class ComputersController < ApplicationController
   before_filter :login_required
   
   def index
-    @computers = Computer.find_all_by_user_id(session[:user_id])
+    @computers = current_user.computers.all
   end
 
   def show
-    @computer = Computer.find(params[:id])
+    @computer = current_user.computers.find(params[:id])
   end
 
   def new
@@ -14,12 +14,11 @@ class ComputersController < ApplicationController
   end
 
   def edit
-    @computer = Computer.find(params[:id])
+    @computer = current_user.computers.find(params[:id])
   end
   
   def create
-    @computer = Computer.new(params[:computer])
-    @computer.user_id = session[:user_id]
+    @computer = current_user.computers.new(params[:computer])
     respond_to do |format|
       if @computer.save
         flash[:notice] = 'Computer was successfully created.'
@@ -31,7 +30,7 @@ class ComputersController < ApplicationController
   end
   
   def update
-    @computer = Computer.find(params[:id])
+    @computer = current_user.computers.find(params[:id])
     @computer.attributes = params[:computer]
     
     respond_to do |format|
