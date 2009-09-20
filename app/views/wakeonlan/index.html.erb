@@ -1,3 +1,23 @@
 <% title "WakeOnLan" %>
 
-<%= render :partial => '/wakeonlan/wakehost' %>
+<% form_tag :controller => "wakeonlan", :action => "quickwake" do -%>
+  <h2>Send Magic Packet</h2>
+  <p>
+    <%= label_tag "mac", "MAC Address" %><br />
+    <%= text_field_tag "mac" %>
+  </p>
+  <p>
+    <%= label_tag "host_to_wake", "IP Address or Hostname" %><br />
+    <%= text_field_tag "host_to_wake" %>
+  </p>
+  <p>
+    <%= label_tag "port", "Port (default: #{APP_CONFIG[:wol_port]})" %><br />
+    <%= text_field_tag "port", APP_CONFIG[:wol_port], :size => 4 %> 
+  </p>
+  <p>
+    <%= captcha_tags %>
+  </p>
+  <p>
+    <%= submit_tag "Submit" %>
+  </p>
+<% end -%>
