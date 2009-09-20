@@ -1,8 +1,12 @@
 class Captcha
   require 'ezcrypto'
   require 'linguistics'
-
-  NUMBERS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+  attr_accessor :lower_limit, :higher_limit
+  
+  def initialize(lower_limit = 0, higher_limit = 10)
+    @lower_limit = lower_limit
+    @higher_limit = higher_limit
+  end
   
   def generate_qa(password, salt)
     key = EzCrypto::Key.with_password password, salt
@@ -10,7 +14,7 @@ class Captcha
     base_question = "What is "
     operators = ["+", "*", "-"]
     
-    operands = [rand(10), rand(10)]
+    operands = [rand_range(lower_limit, higher_limit), rand_range(lower_limit, higher_limit)]
     operands.sort!
     
     case operators[rand(operators.length)]
@@ -39,5 +43,9 @@ private
   def number_to_word(number)
     Linguistics::use( :en )
     return number.en.numwords
+  end
+  
+  def rand_range(min, max)
+    min + rand(max-min)
   end
 end
