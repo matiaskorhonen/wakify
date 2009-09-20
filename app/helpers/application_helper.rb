@@ -17,4 +17,14 @@ module ApplicationHelper
     
     xhtml << "</ul>"
   end
+  
+  def captcha_tags
+    c = Captcha.new
+    qa = c.generate_qa(APP_CONFIG[:captcha_password], APP_CONFIG[:captcha_salt])
+    
+    xhtml = label_tag("captcha_attempt", qa["question"])
+    xhtml << "<br />"
+    xhtml << text_field_tag("captcha_attempt")
+    xhtml << hidden_field_tag("encrypted_answer", qa["encrypted_answer"])
+  end
 end

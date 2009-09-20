@@ -4,6 +4,8 @@ development:
   wol_port: 9
   wol_command: wakeonlan
   ping_command: ping
+  captcha_password: 27d02fea5971ff982f6c4c91d7f42635a9630ab0
+  captcha_salt: 709b483739c8deddea3511fb1a0ff6477e035008
 
 test:
   domain: test.host

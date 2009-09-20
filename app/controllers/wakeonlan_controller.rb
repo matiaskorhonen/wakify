@@ -1,5 +1,6 @@
 class WakeonlanController < ApplicationController
   before_filter :quickwake_validation, :only => [:quickwake]
+  before_filter :captcha_validation, :only => [:quickwake]
   
   def index
   end

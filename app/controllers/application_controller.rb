@@ -2,6 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  require 'captcha'
   include Authentication
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
@@ -37,5 +38,16 @@ class ApplicationController < ActionController::Base
   def valid_mac?(mac)
     mac_regex = /^(\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2})?$/
     return mac_regex.match(mac)
+  end
+  
+  def captcha_validation
+    c = Captcha.new
+    success = c.check_answer(params[:encrypted_answer], params[:captcha_attempt], APP_CONFIG[:captcha_password], APP_CONFIG[:captcha_salt])
+    if !success
+      flash[:error] = "Failed CAPTCHA!"
+      respond_to do |format|
+        format.html { redirect_to request.referer }
+      end
+    end
   end
 end
