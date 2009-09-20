@@ -8,6 +8,8 @@ ActionController::Routing::Routes.draw do |map|
   map.account 'account', :controller => 'users', :action => 'edit'
   map.activate 'activate/:activation_code', :controller => 'users', :action => 'activate'
   map.resend_activation 'resend_activation', :controller => 'users', :action => 'resend_activation'
+  map.request_password_reset 'request_password_reset', :controller => 'users', :action => 'request_password_reset'
+  map.password_reset 'password_reset/:code', :controller => 'users', :action => 'reset_password'
   
   map.resources :sessions
   map.resources :users

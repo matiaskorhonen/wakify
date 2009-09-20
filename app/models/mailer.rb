@@ -7,4 +7,13 @@ class Mailer < ActionMailer::Base
     content_type  "text/plain"
     body          :user => user
   end
+  
+  def password_reset_email(user)
+    recipients    user.email
+    from          "#{APP_CONFIG[:sitename]} <notifications@example.com>"
+    subject       "Password reset for #{APP_CONFIG[:sitename]}"
+    sent_on       Time.now
+    content_type  "text/plain"
+    body          :user => user
+  end
 end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090919132401) do
+ActiveRecord::Schema.define(:version => 20090920162018) do
 
   create_table "computers", :force => true do |t|
     t.integer  "user_id"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20090919132401) do
     t.datetime "updated_at"
     t.boolean  "admin",           :default => false
     t.string   "activation_code"
+    t.string   "password_reset"
   end
 
 end

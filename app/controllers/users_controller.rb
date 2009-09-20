@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :login_required, :except => [:new, :create, :activate, :resend_activation, :send_activation]
+  before_filter :login_required, :only => [:edit, :update]
   
   def new
     @user = User.new
@@ -53,13 +53,64 @@ class UsersController < ApplicationController
   def send_activation
     user = User.find_by_email(params[:email])
     
-    if !user.activated?
-      Mailer.deliver_welcome_email(user)
-      flash[:notice] = "Activation email sent"
+    if !user.nil?
+      if !user.activated?
+        Mailer.deliver_welcome_email(user)
+        flash[:notice] = "Activation email sent"
+      else
+        flash[:error] = "You already activated your account."
+      end
     else
-      flash[:error] = "You already activated your account."
+      flash[:error] = "No user account found for that email address"
     end
     
     redirect_to resend_activation_path
+  end
+  
+  def request_password_reset
+  end
+  
+  def send_password_reset
+    user = User.find_by_email(params[:email])
+    
+    if !user.nil?
+      user.add_password_reset
+      if user.save
+        Mailer.deliver_password_reset_email(user)
+        flash[:notice] = "Reset link sent"
+      else
+        flash[:error] = "An unknown error occured"
+      end
+    else
+      flash[:error] = "No user account found for that email address"
+    end
+    
+    redirect_to request_password_reset_path
+  end
+  
+  def reset_password
+    @user = User.find_by_password_reset(params[:code])
+    
+    if @user.password_reset_time <= 1.day.ago
+      flash[:error] = "Your reset link has expired"
+      redirect_to :action => "request_password_reset"
+    end
+  end
+  
+  def change_password
+    @user = User.find_by_password_reset(params[:user][:password_reset])
+    
+    @user.password = params[:user][:password]
+    @user.password_reset = nil
+    
+    respond_to do |format|
+        if @user.save
+          flash[:notice] = "User password changed"
+          format.html { redirect_to login_path }
+        else
+          flash[:error] = "Something went wrong"
+          format.html { redirect_to :root }
+        end
+    end
   end
 end

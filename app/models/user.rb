@@ -25,12 +25,28 @@ class User < ActiveRecord::Base
     return Computer.find_by_user_id(self.id)
   end
   
+  def self.find_by_password_reset_code(code)
+    find(:first, :conditions => ['password_reset LIKE ?', "%#{code}"])
+  end
+  
   def matching_password?(pass)
     self.password_hash == encrypt_password(pass)
   end
   
   def activated?
     self.activation_code.nil?
+  end
+  
+  def password_reset_code
+    self.password_reset.split(';', 2)[1]
+  end
+  
+  def password_reset_time
+    Time.at(self.password_reset.split(';', 2)[0].to_i)
+  end
+  
+  def add_password_reset
+    self.password_reset = "#{Time.now.to_i};#{Digest::SHA1.hexdigest([Time.now, rand].join)}"
   end
   
   private
