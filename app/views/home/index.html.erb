@@ -2,11 +2,22 @@
 
 <% if !logged_in? %>
   <p>
-    <strong>Wakify</strong> is a simple web pllication that lets you send
+    <strong>Wakify</strong> is a simple web application that lets you send
     Wake-On-LAN magic packets to computers. Once registered, you can also save
     hosts so that you don't have to manually enter their MAC and IP addresses.
   </p>
   <p>
     As an added feature you can also ping hosts to see if they are up.
   </p>
+<% else %>
+  <p>
+    Welcome back to <strong>Wakify</strong>!
+  </p>
+  <%= link_to "My computers", { :controller => "computers" }, :class => "homeLink" %>
+  
+  <%= link_to "Add a computer", { :controller => "computers", :action => "new" }, :class => "homeLink" %>
 <% end %> 
+
+<%= link_to "Wake a host", { :controller => "wakeonlan" }, :class => "homeLink" %>
+
+<%= link_to "Ping a host", { :controller => "ping" }, :class => "homeLink" %>

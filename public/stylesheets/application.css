@@ -199,12 +199,23 @@ a:hover.accountLink {
   text-decoration: underline !important;
 }
 
-div.computers, form {
+div.computers, form, a.homeLink {
   background: #d3d7cf;
   padding: 10px;
   margin-bottom: 20px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
+}
+
+a.homeLink {
+  display: block;
+  font-size: 20pt;
+  text-decoration: none;
+  color: #4e9a06;
+}
+
+a:hover.homeLink {
+  color: #73d216;
 }
 
 div.computers h2, form h2 {
