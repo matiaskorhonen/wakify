@@ -47,10 +47,10 @@ class UsersController < ApplicationController
     end
   end
   
-  def resend_activation
+  def requests
   end
   
-  def send_activation
+  def resend_activation
     user = User.find_by_email(params[:email])
     
     if !user.nil?
@@ -64,10 +64,7 @@ class UsersController < ApplicationController
       flash[:error] = "No user account found for that email address"
     end
     
-    redirect_to resend_activation_path
-  end
-  
-  def request_password_reset
+    redirect_to requests_path
   end
   
   def send_password_reset
@@ -85,7 +82,7 @@ class UsersController < ApplicationController
       flash[:error] = "No user account found for that email address"
     end
     
-    redirect_to request_password_reset_path
+    redirect_to requests_path
   end
   
   def reset_password
@@ -93,7 +90,7 @@ class UsersController < ApplicationController
     
     if @user.password_reset_time <= 1.day.ago
       flash[:error] = "Your reset link has expired"
-      redirect_to :action => "request_password_reset"
+      redirect_to requests_path
     end
   end
   
@@ -105,12 +102,11 @@ class UsersController < ApplicationController
     
     respond_to do |format|
         if @user.save
-          flash[:notice] = "User password changed"
-          format.html { redirect_to login_path }
+          flash[:notice] = "User password changed. You can now login."
         else
           flash[:error] = "Something went wrong"
-          format.html { redirect_to :root }
         end
+        format.html { redirect_to :root }
     end
   end
 end
