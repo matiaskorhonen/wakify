@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
     c = Captcha.new
     success = c.check_answer(params[:encrypted_answer], params[:captcha_attempt], APP_CONFIG[:captcha_password], APP_CONFIG[:captcha_salt])
     if !success
-      flash[:error] = "Failed CAPTCHA!"
+      flash[:error] = "Failed CAPTCHA! Remember to answer as a number (i.e. '6', not 'six')"
       respond_to do |format|
         format.html { redirect_to request.referer }
       end

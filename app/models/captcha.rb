@@ -1,6 +1,7 @@
 class Captcha
   require 'ezcrypto'
-  
+  require 'linguistics'
+
   NUMBERS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
   
   def generate_qa(password, salt)
@@ -30,22 +31,13 @@ class Captcha
   def check_answer(encrypted_answer, attempt, password, salt)
     key = EzCrypto::Key.with_password password, salt
     
-    answer = attempt.to_s
-    
-    if answer.length > 1
-      answer = words_to_number(answer).to_s
-    end
-    
-    return key.decrypt64(encrypted_answer) == answer
+    return key.decrypt64(encrypted_answer) == attempt.to_s
   end
   
 private
   
   def number_to_word(number)
-    return NUMBERS[number.to_i]
-  end
-  
-  def words_to_number(word)
-    return NUMBERS.find_index(word.downcase)
+    Linguistics::use( :en )
+    return number.en.numwords
   end
 end
