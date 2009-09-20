@@ -1,3 +1,10 @@
+# The User records require the following attributes:
+# * username
+# * email
+# * password_hash
+# * password_salt
+#
+# User passwords are salted and hashed
 class User < ActiveRecord::Base
   has_many :computers
   # new columns need to be added here to be writable through mass assignment
@@ -15,36 +22,37 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validates_length_of :password, :minimum => 4, :allow_blank => true
   
-  # login can be either username or email address
+  # Login can be either username or email address
   def self.authenticate(login, pass)
     user = find_by_username(login) || find_by_email(login)
     return user if user && user.matching_password?(pass)
   end
   
+  # Return the computers for a user
   def self.computers
     return Computer.find_by_user_id(self.id)
-  end
-  
-  def self.find_by_password_reset_code(code)
-    find(:first, :conditions => ['password_reset LIKE ?', "%#{code}"])
   end
   
   def matching_password?(pass)
     self.password_hash == encrypt_password(pass)
   end
   
+  # Check if a user has activated their account
   def activated?
     self.activation_code.nil?
   end
   
+  # Find the user's password reset code
   def password_reset_code
     self.password_reset.split(';', 2)[1]
   end
   
+  # Find the password reset generation time
   def password_reset_time
     Time.at(self.password_reset.split(';', 2)[0].to_i)
   end
   
+  # Add a password reset to the user
   def add_password_reset
     self.password_reset = "#{Time.now.to_i};#{Digest::SHA1.hexdigest([Time.now, rand].join)}"
   end

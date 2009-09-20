@@ -1,11 +1,14 @@
+# Controller used for Pages related actions
 class PagesController < ApplicationController
   before_filter :login_required, :except => [:show, :index]
   before_filter :authorize, :except => [:show, :index]
   
+  # List all pages
   def index
     @pages = Page.all
   end
   
+  # Show a specific page using either the id or the permalink
   def show
     if params[:permalink]
       @page = Page.find_by_permalink(params[:permalink])
@@ -15,10 +18,12 @@ class PagesController < ApplicationController
     end
   end
   
+  # Create a new page
   def new
     @page = Page.new
   end
   
+  #Save a new page in the database
   def create
     @page = Page.new(params[:page])
     if @page.save
@@ -29,10 +34,12 @@ class PagesController < ApplicationController
     end
   end
   
+  # Edit an existing page
   def edit
     @page = Page.find(params[:id])
   end
   
+  # Update an existing page
   def update
     @page = Page.find(params[:id])
     if @page.update_attributes(params[:page])
@@ -43,6 +50,7 @@ class PagesController < ApplicationController
     end
   end
   
+  # Destroy a given page
   def destroy
     @page = Page.find(params[:id])
     @page.destroy

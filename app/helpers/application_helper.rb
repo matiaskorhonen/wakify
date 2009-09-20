@@ -2,6 +2,7 @@
 module ApplicationHelper
   include Authorization
   
+  # Construct the navigation ul
   def navigation(*controllers)
     xhtml = "<ul>\n"
     
@@ -18,6 +19,7 @@ module ApplicationHelper
     xhtml << "</ul>"
   end
   
+  # Construct Captcha tags for a form
   def captcha_tags
     c = Captcha.new
     qa = c.generate_qa(APP_CONFIG[:captcha_password], APP_CONFIG[:captcha_salt])

@@ -1,22 +1,28 @@
+# Controller used for Computer related actions
 class ComputersController < ApplicationController
   before_filter :login_required
   
+  # List all computers for the current user
   def index
     @computers = current_user.computers.all
   end
 
+  # Show a particular computer for the current user
   def show
     @computer = current_user.computers.find(params[:id])
   end
 
+  # Create a new computer
   def new
     @computer = Computer.new
   end
 
+  # Edit an existing computer
   def edit
     @computer = current_user.computers.find(params[:id])
   end
   
+  # Save a new computer using given parameters
   def create
     @computer = current_user.computers.new(params[:computer])
     respond_to do |format|
@@ -29,6 +35,7 @@ class ComputersController < ApplicationController
     end
   end
   
+  # Update an existing computer using given parameters
   def update
     @computer = current_user.computers.find(params[:id])
     @computer.attributes = params[:computer]
@@ -44,6 +51,7 @@ class ComputersController < ApplicationController
     end
   end
   
+  # Ping or wake an existing computer
   def pingorwake
     if params[:commit] == "Wake"
       redirect_to :action => "wake_computer", :controller => "wakeonlan", :id => params[:computer][:id]

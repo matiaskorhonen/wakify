@@ -1,3 +1,10 @@
+# Computer records require:
+# * name
+# * host
+# * mac
+# * port
+#
+# The *description* is optional
 class Computer < ActiveRecord::Base
   belongs_to :user
   
