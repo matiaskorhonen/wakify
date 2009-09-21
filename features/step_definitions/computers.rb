@@ -44,3 +44,24 @@ Then /^the user should be able to view a list of computers$/ do
  visit "/computers"
  response.body.should =~ /example.com/m
 end
+
+Then /^the user should be able to view the details of the "([^\"]*)" computer$/ do |name|
+  @computer = Computer.find_by_name(name)
+  visit "computers/show/" + @computer.id.to_s
+  response.body.should =~/example.com/m
+end
+
+Then /^the user should be able to change the details of the "([^\"]*)" computer$/ do |name|
+  @computer = Computer.find_by_name(name)
+  visit "computers/edit/" + @computer.id.to_s
+  fill_in("computer_host", :with => 'example.org')
+  click_button("Update")
+  response.body.should =~ /updated/m
+end
+
+Then /^the user should be able to delete the "([^\"]*)" computer$/ do |name|
+  @computer = Computer.find_by_name(name)
+  visit "computers/show/" + @computer.id.to_s
+  click_link("Delete")
+  response.body.should =~ /deleted/m
+end
