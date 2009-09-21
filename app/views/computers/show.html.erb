@@ -22,6 +22,7 @@
     <%= f.submit "Wake"%>
     <%= f.submit "Ping" %>
     <span class="editLink"><%= link_to("Edit", :action => "edit", :id => @computer.id) %></span>
+    <span class="editLink"><%= link_to("Delete", :action => "delete", :id => @computer.id) %></span>
   <% end %>
 </p>
 
