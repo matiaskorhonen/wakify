@@ -14,7 +14,7 @@ h2. Credits
 
 The icons found in the @public/images/tango/@ directory are part of the "Tango Icon Library":http://tango.freedesktop.org/Tango_Icon_Library and have been released into the public domain.
 
-The "jQuery":http://jquery.com/ JavaScript library is included in the @public/javascripts/@ directory and it is licensed under both the GPLv2:http://jquery.com/dev/svn/trunk/jquery/GPL-LICENSE.txt and MIT:http://jquery.com/dev/svn/trunk/jquery/MIT-LICENSE.txt licenses.
+The "jQuery":http://jquery.com/ JavaScript library is included in the @public/javascripts/@ directory and it is licensed under both the "GPLv2":http://jquery.com/dev/svn/trunk/jquery/GPL-LICENSE.txt and "MIT":http://jquery.com/dev/svn/trunk/jquery/MIT-LICENSE.txt licenses.
 
 h2. Gems
 
