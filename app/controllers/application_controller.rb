@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   require 'captcha'
   
   include Authentication
+  include Authorization
+  
   helper :all
   protect_from_forgery
   

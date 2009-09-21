@@ -41,13 +41,29 @@ class ComputersController < ApplicationController
     @computer.attributes = params[:computer]
     
     respond_to do |format|
-      if @cumputer.access_allowed(current_user)
+      if @computer.access_allowed?(current_user)
         if @computer.save
+          flash[:notice] = "Computer was successfully updated"
           format.html { render :action => "show" }
         else
           format.html { render :action => "edit" }
         end
       end
+    end
+  end
+  
+  def delete
+    @computer = current_user.computers.find(params[:id])
+    
+    respond_to do |format|
+      if @computer.access_allowed?(current_user)
+        if @computer.delete
+          flash[:notice] = "Computer was successfully deleted"
+        else
+          flash[:error] = "Something went wrong"
+        end
+      end
+      format.html { redirect_to :controller => "computers", :action => "index" }
     end
   end
   
