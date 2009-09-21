@@ -48,9 +48,27 @@ class ApplicationController < ActionController::Base
   end
   
   # Check if a hostname is valid.
+  # 
+  # The following cehcks are run:
+  # * No invalid characters
+  # * If the host is an IP address, that it is not in the private ranges
+  # * If the host is a hostname, that the hostanem resolves to an IP address
   def valid_hostname?(address)
     hostname_regex = /(^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$)|(^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$)/
-    return hostname_regex.match(address)
+    
+    if hostname_regex.match(address)
+      if /\A(?:25[0-5]|(?:2[0-4]|1\d|[1-9])?\d)(?:\.(?:25[0-5]|(?:2[0-4]|1\d|[1-9])?\d)){3}\z/.match(address)
+        valid_ip = private_ip?(address)
+      else
+        valid_hostname = hostname_resolves?(address)
+      end
+    end
+    
+    if valid_ip || valid_hostname
+      return true
+    else
+      return false
+    end
   end
   
   # Check if a MAC address is valid.
