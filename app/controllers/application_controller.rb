@@ -2,6 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 class ApplicationController < ActionController::Base
   require 'captcha'
+  
   include Authentication
   helper :all
   protect_from_forgery
@@ -27,18 +28,6 @@ class ApplicationController < ActionController::Base
       false
     end
   end
-
-  # Check if a hostname is valid.
-  def valid_hostname?(address)
-    hostname_regex = /(^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$)|(^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$)/
-    return hostname_regex.match(address)
-  end
-  
-  # Check if a MAC address is valid.
-  def valid_mac?(mac)
-    mac_regex = /^(\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2})?$/
-    return mac_regex.match(mac)
-  end
   
   # Check if a captcha validates
   #
@@ -56,5 +45,32 @@ class ApplicationController < ActionController::Base
         format.html { redirect_to request.referer }
       end
     end
+  end
+  
+  # Check if a hostname is valid.
+  def valid_hostname?(address)
+    hostname_regex = /(^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$)|(^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$)/
+    return hostname_regex.match(address)
+  end
+  
+  # Check if a MAC address is valid.
+  def valid_mac?(mac)
+    mac_regex = /^(\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2})?$/
+    return mac_regex.match(mac)
+  end
+  
+  # Alias for <tt>Computer.new.private_ip?(ip)</tt>
+  def private_ip?(ip)
+    Computer.new.private_ip?(ip)
+  end
+  
+  # Alias for <tt>Computer.new.resolve_hostname(hostname)</tt>
+  def resolve_hostname(hostname)
+    Computer.new.resolve_hostname(hostname)
+  end
+  
+  # Alias for <tt>Computer.new.hostname_resolves?(hostname)</tt>
+  def hostname_resolves?(hostname)
+    Computer.new.hostname_resolves?(hostname)
   end
 end
