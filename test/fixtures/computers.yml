@@ -2,16 +2,14 @@
 
 one:
   id: 1
-  name: 
+  name: MyString
   description: MyText
-  host: MyString
-  mac: MyString
-  broadcast_ip: MyString
+  host: example.com
+  mac: 00:1d:60:56:71:7e
 
 two:
-  id: 1
-  name: 
+  id: 2
+  name: MyString
   description: MyText
-  host: MyString
-  mac: MyString
-  broadcast_ip: MyString
+  host: example.com
+  mac: 00:1d:60:56:71:7e
