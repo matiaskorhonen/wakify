@@ -212,10 +212,27 @@ a.homeLink {
   font-size: 20pt;
   text-decoration: none;
   color: #4e9a06;
+  padding-left: 64px;
 }
 
 a:hover.homeLink {
   color: #73d216;
+}
+
+#myComputers {
+  background: #d3d7cf url('/images/tango/48x48/my_computers.png') no-repeat 8px 2px;
+}
+
+#addComputer {
+  background: #d3d7cf url('/images/tango/48x48/add.png') no-repeat 8px 2px;
+}
+
+#wakeHost {
+  background: #d3d7cf url('/images/tango/48x48/wake.png') no-repeat 8px 2px;
+}
+
+#pingHost {
+  background: #d3d7cf url('/images/tango/48x48/ping.png') no-repeat 8px 2px;
 }
 
 div.computers h2, form h2 {

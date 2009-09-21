@@ -13,11 +13,11 @@
   <p>
     Welcome back to <strong>Wakify</strong>!
   </p>
-  <%= link_to "My computers", { :controller => "computers" }, :class => "homeLink" %>
+  <%= link_to "My computers", { :controller => "computers" }, :class => "homeLink", :id => "myComputers" %>
   
-  <%= link_to "Add a computer", { :controller => "computers", :action => "new" }, :class => "homeLink" %>
+  <%= link_to "Add a computer", { :controller => "computers", :action => "new" }, :class => "homeLink", :id => "addComputer" %>
 <% end %> 
 
-<%= link_to "Wake a host", { :controller => "wakeonlan" }, :class => "homeLink" %>
+<%= link_to "Wake a host", { :controller => "wakeonlan" }, :class => "homeLink", :id => "wakeHost" %>
 
-<%= link_to "Ping a host", { :controller => "ping" }, :class => "homeLink" %>
+<%= link_to "Ping a host", { :controller => "ping" }, :class => "homeLink", :id => "pingHost" %>

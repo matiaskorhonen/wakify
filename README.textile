@@ -8,7 +8,22 @@ You will need to have wakeonlan installed on your computer. The program is avail
 
 h2. Thanks
 
-Thanks to Ryan Bates for his nifty_generators and thanks to Joao Cardoso for his support and advice.
+Thanks to Ryan Bates for his nifty_generators and his excellent Railscasts.
+
+h2. Credits
+
+The icons found in the @public/images/tango/@ directory are part of the "Tango Icon Library":tango and have been released into the public domain.
+
+The "jQuery":jquery JavaScript library is included in the @public/javascripts/@ directory and it is licensed under both the GPLv2:gplv2 and MIT:mit licenses.
+
+h2. Gems
+
+The following gems are required to run the application:
+
+* net-ping
+* RedCloth
+* ezcrypto
+* Linguistics
 
 h2. License
 
@@ -20,3 +35,8 @@ Foundation, either version 3 of the License, or (at your option) any later versi
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/
+
+[tango]http://tango.freedesktop.org/Tango_Icon_Library
+[jquery]http://jquery.com/
+[mit]http://www.opensource.org/licenses/mit-license.php
+[gplv2]http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
