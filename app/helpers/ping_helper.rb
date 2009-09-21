@@ -1,3 +1,2 @@
-# Ping specific helpers
-module PingHelper
+module PingHelper  # :nodoc: all
 end

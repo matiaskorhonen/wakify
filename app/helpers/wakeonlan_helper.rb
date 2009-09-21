@@ -1,3 +1,2 @@
-# Wakeonlan specific helpers
-module WakeonlanHelper
+module WakeonlanHelper  # :nodoc: all
 end

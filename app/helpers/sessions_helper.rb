@@ -1,3 +1,2 @@
-# Session specific helpers
-module SessionsHelper
+module SessionsHelper  # :nodoc: all
 end

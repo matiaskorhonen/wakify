@@ -1,3 +1,2 @@
-# Computer specific helpers
-module ComputersHelper
+module ComputersHelper # :nodoc: all
 end

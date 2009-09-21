@@ -1,3 +1,2 @@
-# Pages specific helpers
-module PagesHelper
+module PagesHelper  # :nodoc: all
 end

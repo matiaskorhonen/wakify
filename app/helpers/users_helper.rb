@@ -1,3 +1,2 @@
-# User specific helpers
-module UsersHelper
+module UsersHelper  # :nodoc: all
 end

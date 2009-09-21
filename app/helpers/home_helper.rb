@@ -1,3 +1,2 @@
-# Home specific helpers
-module HomeHelper
+module HomeHelper  # :nodoc: all
 end
