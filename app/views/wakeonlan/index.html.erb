@@ -14,9 +14,11 @@
     <%= label_tag "port", "Port (default: #{APP_CONFIG[:wol_port]})" %><br />
     <%= text_field_tag "port", APP_CONFIG[:wol_port], :size => 4 %> 
   </p>
-  <p>
-    <%= captcha_tags %>
-  </p>
+  <% if APP_CONFIG[:captcha_enabled] %>
+    <p>
+      <%= captcha_tags %>
+    </p>
+  <% end %>
   <p>
     <%= submit_tag "Submit" %>
   </p>

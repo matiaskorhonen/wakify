@@ -5,9 +5,11 @@
     <%= label_tag "host_to_ping", "Host to ping" %><br />
     <%= text_field_tag "host_to_ping" %>
   </p>
-  <p>
-    <%= captcha_tags %>
-  </p>
+  <% if APP_CONFIG[:captcha_enabled] %>
+    <p>
+      <%= captcha_tags %>
+    </p>
+  <% end %>
   <p>
     <%= submit_tag "Ping", :disable_with => "Pinging... (This might take some time)" %>
   </p>
