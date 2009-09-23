@@ -1,0 +1,16 @@
+<% title "User: " + @user.username %>
+
+<p><%= link_to "Edit your account", account_path %></p>
+
+<p>
+  <strong>Username</strong><br />
+  <%= @user.username %>
+</p>
+<p>
+  <strong>Email Address</strong><br />
+  <%= @user.email %>
+</p>
+<p>
+  <strong>Name</strong><br />
+  <%= @user.fullname %>
+</p>

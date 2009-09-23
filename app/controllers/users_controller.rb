@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  before_filter :login_required, :only => [:edit, :update]
+  before_filter :login_required, :only => [:show, :edit, :update]
+  
+  def show
+    @user = current_user
+  end
   
   def new
     @user = User.new

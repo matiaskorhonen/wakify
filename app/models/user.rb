@@ -8,7 +8,7 @@
 class User < ActiveRecord::Base
   has_many :computers
   # new columns need to be added here to be writable through mass assignment
-  attr_accessible :username, :email, :password, :password_confirmation
+  attr_accessible :firstname, :lastname, :username, :email, :password, :password_confirmation
   
   attr_accessor :password
   before_save :prepare_password
@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
   
   def matching_password?(pass)
     self.password_hash == encrypt_password(pass)
+  end
+  
+  def fullname
+    return self.firstname + " " + self.lastname
   end
   
   # Check if a user has activated their account
