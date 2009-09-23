@@ -5,6 +5,10 @@ class ComputersController < ApplicationController
   # List all computers for the current user
   def index
     @computers = current_user.computers.all
+    respond_to do |format|
+      format.html
+      format.text { render :layout => false }
+    end
   end
 
   # Show a particular computer for the current user

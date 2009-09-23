@@ -1,0 +1,12 @@
+# <%= pluralize(@computers.count, "Computer") %>
+# Exported from <%= APP_CONFIG[:sitename] %> for <%= current_user.username %>
+#
+# http://<%= APP_CONFIG[:domain] %>
+#
+# Hardware address, IP address, destination port
+
+<% @computers.each do |c| -%>
+# <%= c.name %>
+<%= "#{c.mac}\t#{c.host}\t#{c.port}" %>
+
+<% end -%>
