@@ -1,6 +1,7 @@
 development:
   domain: localhost:3000
   sitename: Wakify (dev)
+  site_slogan: Quick and Easy Wake-On-LAN
   wol_port: 9
   wol_command: wakeonlan
   ping_command: ping
@@ -11,6 +12,7 @@ development:
 test:
   domain: test.host
   sitename: Wakify (test)
+  site_slogan: Quick and Easy Wake-On-LAN
   wol_port: 9
   wol_command: wakeonlan
   ping_command: ping
@@ -21,6 +23,7 @@ test:
 production:
   domain: wakify.com
   sitename: Wakify
+  site_slogan: Quick and Easy Wake-On-LAN
   wol_port: 9
   wol_command: wakeonlan
   ping_command: ping
