@@ -21,7 +21,7 @@ module ApplicationHelper
   
   # Construct Captcha tags for a form
   def captcha_tags
-    c = Captcha.new
+    c = Captcha.new(APP_CONFIG[:captcha_lower_limit], APP_CONFIG[:captcha_upper_limit])
     qa = c.generate_qa(APP_CONFIG[:captcha_password], APP_CONFIG[:captcha_salt])
     
     xhtml = label_tag("captcha_attempt", qa["question"])

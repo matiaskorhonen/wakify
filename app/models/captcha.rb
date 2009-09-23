@@ -30,18 +30,17 @@ class Captcha
     operators = ["+", "*", "-"]
     
     operands = [rand_range(lower_limit, higher_limit), rand_range(lower_limit, higher_limit)]
-    operands.sort!
     
     case operators[rand(operators.length)]
       when "+"
-        q = "#{base_question + number_to_word(operands[0])} plus #{number_to_word(operands[1])}?"
-        a = operands[0] + operands[1]
+        q = "#{base_question + number_to_word(operands.first)} plus #{number_to_word(operands.last)}?"
+        a = operands.first + operands.last
       when "*"
-        q = "#{base_question + number_to_word(operands[0])} times #{number_to_word(operands[1])}?"
-        a = operands[0] * operands[1]
+        q = "#{base_question + number_to_word(operands.first)} times #{number_to_word(operands.last)}?"
+        a = operands.first * operands.last
       when "-"
-        q = "#{base_question + number_to_word(operands[1])} minus #{number_to_word(operands[0])}?"
-        a = operands[1] - operands[0]
+        q = "#{base_question + number_to_word(operands.max)} minus #{number_to_word(operands.min)}?"
+        a = operands.max - operands.min
     end
     
     return {"question" => q, "encrypted_answer" => key.encrypt64(a.to_s).strip}
