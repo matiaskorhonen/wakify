@@ -15,11 +15,8 @@ class WakeonlanController < ApplicationController
   
   def wake_computer
     c = current_user.computers.find(params[:id])
-    if c.access_allowed?(current_user)
-      flash[:notice] = wakehost(c.mac, c.host, c.port)
-    else
-      flash[:error] = "Something went wrong, it seems that you are not allowed to wake that host!"
-    end
+    
+    flash[:notice] = wakehost(c.mac, c.host, c.port)
     
     redirect_to request.referer
   end

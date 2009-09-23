@@ -18,7 +18,7 @@ class ComputersController < ApplicationController
 
   # Create a new computer
   def new
-    @computer = Computer.new
+    @computer = current_user.computers.new
   end
 
   # Edit an existing computer
@@ -45,13 +45,11 @@ class ComputersController < ApplicationController
     @computer.attributes = params[:computer]
     
     respond_to do |format|
-      if @computer.access_allowed?(current_user)
-        if @computer.save
-          flash[:notice] = "Computer was successfully updated"
-          format.html { render :action => "show" }
-        else
-          format.html { render :action => "edit" }
-        end
+      if @computer.save
+        flash[:notice] = "Computer was successfully updated"
+        format.html { render :action => "show" }
+      else
+        format.html { render :action => "edit" }
       end
     end
   end
@@ -60,12 +58,10 @@ class ComputersController < ApplicationController
     @computer = current_user.computers.find(params[:id])
     
     respond_to do |format|
-      if @computer.access_allowed?(current_user)
-        if @computer.delete
-          flash[:notice] = "Computer was successfully deleted"
-        else
-          flash[:error] = "Something went wrong"
-        end
+      if @computer.delete
+        flash[:notice] = "Computer was successfully deleted"
+      else
+        flash[:error] = "Something went wrong"
       end
       format.html { redirect_to :controller => "computers", :action => "index" }
     end
