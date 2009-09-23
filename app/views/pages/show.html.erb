@@ -1,6 +1,6 @@
 <% title @page.name %>
 
-<%= RedCloth.new(@page.content).to_html %>
+<%= textilize(@page.content) %>
 
 <% if admin? %>
   <p>
