@@ -25,7 +25,7 @@ module ApplicationHelper
     
     xhtml = label_tag("captcha_attempt", qa["question"])
     xhtml << "<br />"
-    xhtml << text_field_tag("captcha_attempt")
+    xhtml << password_field_tag("captcha_attempt")
     xhtml << hidden_field_tag("encrypted_answer", qa["encrypted_answer"])
   end
   
