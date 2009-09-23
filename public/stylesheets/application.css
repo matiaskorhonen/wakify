@@ -243,3 +243,8 @@ span.address {
   font-family: "Courier New", "Courier", monospace;
   font-size: 110%;
 }
+
+.tip {
+  font-style: italic;
+  font-size: 9pt;
+}
