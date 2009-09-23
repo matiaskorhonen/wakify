@@ -14,7 +14,7 @@
 </p>
 <% for computer in @computers %>
   <div class="computers">
-    <h2><%= link_to(computer.name, :action => "show", :id => computer.id) %></h2>
+    <h2><%= link_to(computer.name, :action => "show", :id => computer) %></h2>
     <p>
       <strong>Host:</strong> <span class="address"><%=h computer.host %></span></span><br />
       <strong>MAC:</strong> <span class="address"><%=h computer.mac %></span>

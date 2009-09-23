@@ -65,4 +65,8 @@ class Computer < ActiveRecord::Base
   def hostname_resolves?(hostname)
     return !resolve_hostname(hostname).nil?
   end
+  
+  def to_param
+    "#{self.id}-#{self.name.parameterize}"
+  end
 end
