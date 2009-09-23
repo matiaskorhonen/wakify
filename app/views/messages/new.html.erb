@@ -1,0 +1,34 @@
+<% title "Send Message" %>
+<p>Send a message to the site maintainer.</p>
+
+<% form_for @message do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :firstname, "First Name" %><br />
+    <%= f.text_field :firstname %>
+  </p>
+  <p>
+    <%= f.label :lastname, "Last Name" %><br />
+    <%= f.text_field :lastname %>
+  </p>
+  <p>
+    <%= f.label :email, "Email Address" %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :subject, "Subject" %><br />
+    <%= f.text_field :subject %>
+  </p>
+  <p>
+    <%= f.label :message, "Message" %><br />
+    <%= f.text_area :message, :size => "80x20" %>
+  </p>
+  <p>
+    <%= captcha_tags %>
+  </p>
+    <% if APP_CONFIG[:captcha_enabled] %>
+    <p>
+      <%= f.submit "Send" %>
+    </p>
+    <% end %>
+<% end %>

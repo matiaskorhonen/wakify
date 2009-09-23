@@ -8,12 +8,14 @@ ActionController::Routing::Routes.draw do |map|
   map.activate 'activate/:activation_code', :controller => 'users', :action => 'activate'
   map.requests 'requests', :controller => 'users', :action => 'requests'
   map.password_reset 'password_reset/:code', :controller => 'users', :action => 'reset_password'
+  map.contact 'contact', :controller => 'messages', :action => 'new'
   
   map.resources :sessions
   map.resources :users
   map.resources :computers
   map.resources :wakeonlan
   map.resources :pages
+  map.resources :messages
   
   map.root :controller => "home"
   map.connect ':controller/:action/:id'

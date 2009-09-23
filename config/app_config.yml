@@ -12,6 +12,7 @@ development:
   captcha_upper_limit: 12
   ga_enabled: false
   ga_tracking_code: UA-xxxxxx-x
+  contact_email: support@wakify.com
 
 test:
   domain: test.host
@@ -27,6 +28,7 @@ test:
   captcha_upper_limit: 12
   ga_enabled: true
   ga_tracking_code: UA-xxxxxx-x
+  contact_email: support@wakify.com
   
 production:
   domain: wakify.com
@@ -42,3 +44,4 @@ production:
   captcha_upper_limit: 12
   ga_enabled: true
   ga_tracking_code: UA-xxxxxx-x
+  contact_email: support@wakify.com

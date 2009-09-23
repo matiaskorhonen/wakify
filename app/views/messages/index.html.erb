@@ -1,0 +1,22 @@
+<% title "Messages" %>
+<p>Messages sent by users.</p>
+
+<table>
+  <tr>
+    <th>From</th>
+    <th>Subject</th>
+    <th>Date</th>
+    <th>Actions</th>
+  </tr>
+  <% for message in @messages %>
+  <tr>
+    <td>
+      <%= message.fullname %><br />
+      &lt;<%= message.email %>&gt;
+    </td>
+    <td><%= link_to message.subject, :action => "show", :id => message %></td>
+    <td><%= message.created_at %></td>
+    <td>Delete</td>
+  </tr>
+  <% end %>
+</table>

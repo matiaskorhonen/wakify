@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090923170924) do
+ActiveRecord::Schema.define(:version => 20090923181156) do
 
   create_table "computers", :force => true do |t|
     t.integer  "user_id"
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(:version => 20090923170924) do
     t.datetime "updated_at"
     t.string   "name"
     t.integer  "port"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "email"
+    t.integer  "user_id"
+    t.string   "user_agent"
+    t.string   "subject"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pages", :force => true do |t|

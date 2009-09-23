@@ -21,4 +21,13 @@ class Mailer < ActionMailer::Base
     content_type  "text/plain"
     body          :user => user
   end
+  
+  def user_message(message, user)
+    recipients    APP_CONFIG[:contact_email]
+    from          "#{message.fullname} <#{message.email}>"
+    subject       "[#{APP_CONFIG[:sitename]} contact form] #{message.subject}"
+    sent_on       Time.now
+    content_type  "text/plain"
+    body          :message => message, :user => user
+  end
 end

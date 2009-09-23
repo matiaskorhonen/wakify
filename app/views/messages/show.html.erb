@@ -1,0 +1,17 @@
+<% "Message: " + @message.subject %>
+
+<p>
+<strong>First Name:</strong> <%= @message.firstname %><br />
+<strong>Last Name:</strong> <%= @message.lastname %><br />
+<strong>Email:</strong> <%= @message.email %><br />
+<strong>User ID:</strong> <%= @message.user_id ||= "(not logged in)" %><br />
+<% unless @user.nil? -%>
+<strong>Username:</strong> <%= @user.username %><br />
+<% end -%>
+<strong>User Agent:</strong> <%= @message.user_agent %>
+</p>
+<p>
+<strong>Subject:</strong> <%= @message.subject %>
+</p>
+
+<%= simple_format(@message.message) %>

@@ -1,0 +1,16 @@
+Message from the <%= APP_CONFIG[:sitename] %> contact form
+
+---
+First Name: <%= @message.firstname %>
+Last Name: <%= @message.lastname %>
+Email: <%= @message.email %>
+User ID: <%= @message.user_id ||= "(not logged in)" %>
+<% unless @user.nil? -%>
+Username: <%= @user.username %>
+<% end -%>
+User Agent: <%= @message.user_agent %>
+
+Subject: <%= @message.subject %>
+
+<%= @message.message %>
+
