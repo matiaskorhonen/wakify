@@ -5,23 +5,31 @@
   <a href="#" onclick="$('.description').slideUp('slow'); return false;">hide</a>
   all descriptions
 </p>
-  <% for computer in @computers %>
-    <div class="computers">
-      <h2><%= link_to(computer.name, :action => "show", :id => computer.id) %></h2>
-      <p>
-        <strong>Host:</strong> <span class="address"><%=h computer.host %></span></span><br />
-        <strong>MAC:</strong> <span class="address"><%=h computer.mac %></span>
-      </p>
+<p>
+  Open as <%= link_to "plain text", { :controller => "computers", :format => "text" }, :target => "_blank" %>
+  <span class="tip">
+    (The plain text output is compatible with the <abbr title="Command Line Interface">CLI</abbr>
+    <%= link_to "wakeonlan", "http://gsd.di.uminho.pt/jpo/software/wakeonlan/", :target => "_blank" %> program.)
+  </span>
+</p>
+<% for computer in @computers %>
+  <div class="computers">
+    <h2><%= link_to(computer.name, :action => "show", :id => computer.id) %></h2>
+    <p>
+      <strong>Host:</strong> <span class="address"><%=h computer.host %></span></span><br />
+      <strong>MAC:</strong> <span class="address"><%=h computer.mac %></span>
+    </p>
+    <% unless computer.description.blank? %>
       <a href="#" onclick="$('#description_<%= computer.id.to_s %>').slideToggle('slow'); return false;">Description</a>
-      <p class="description" id="description_<%= computer.id.to_s %>">
-        <%=h computer.description %>
-      </p>
-      <% form_for :computer, computer, :url => {:action => "pingorwake"} do |f| %>
-        <%= f.hidden_field :id %>
-        <%= f.submit "Wake"%>
-        <%= f.submit "Ping" %>
-        <span class="editLink"><%= link_to("Edit", :action => "edit", :id => computer.id) %></span>
-      <% end %>
-    </div>
-  <% end %>
-  <pre>
+      <div class="description" id="description_<%= computer.id.to_s %>">
+        <%= safe_textilize(computer.description) %>
+      </div>
+    <% end %>
+    <% form_for :computer, computer, :url => {:action => "pingorwake"} do |f| %>
+      <%= f.hidden_field :id %>
+      <%= f.submit "Wake", :disable_with => "Sending Magic Packet" %>
+      <%= f.submit "Ping", :disable_with => "Pinging..." %>
+      <span class="editLink"><%= link_to("Edit", :action => "edit", :id => computer.id) %></span>
+    <% end %>
+  </div>
+<% end %>

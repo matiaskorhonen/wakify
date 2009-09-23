@@ -29,4 +29,12 @@ module ApplicationHelper
     xhtml << text_field_tag("captcha_attempt")
     xhtml << hidden_field_tag("encrypted_answer", qa["encrypted_answer"])
   end
+  
+  def safe_textilize(text)
+    if text && text.respond_to?(:to_s)
+      doc = RedCloth.new( text.to_s )
+      doc.sanitize_html = true
+      doc.to_html
+    end
+  end
 end

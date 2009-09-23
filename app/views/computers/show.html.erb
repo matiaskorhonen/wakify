@@ -11,11 +11,12 @@
   <b>MAC:</b>
   <%=h @computer.mac %>
 </p>
-<p>
-  <b>Description:</b>
-  <%=h @computer.description %>
-</p>
-
+<% unless @computer.description.blank? %>
+  <div>
+    <b>Description:</b>
+    <%= safe_textilize(@computer.description) %>
+  </div>
+<% end %>
 <p>
   <% form_for :computer, @computer, :url => {:action => "pingorwake"} do |f| %>
     <%= f.hidden_field :id %>

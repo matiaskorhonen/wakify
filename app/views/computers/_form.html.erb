@@ -18,7 +18,8 @@
   </p>
   <p>
     <%= f.label :description %><br />
-    <%= f.text_area :description, :size => "35x5" %>
+    <%= f.text_area :description, :size => "80x4" %><br />
+    <span class="tip">You can use <%= link_to "textile", "http://redcloth.org/hobix.com/textile/", :target => "_blank" %> in your description.</span>
   </p>
   <p><%= f.submit local_assigns[:button_text] ||= "Create" %></p>
 <% end %>
