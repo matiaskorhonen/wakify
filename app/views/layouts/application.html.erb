@@ -23,7 +23,7 @@
         <p class="slogan"><%= APP_CONFIG[:site_slogan] -%></p>
       </div>
       <div id="navigation">
-        <%= navigation({"controller" => "home", "label" => "Home"}, {"controller" => "computers", "label" => "Computers"}, {"controller" => "wakeonlan", "label" => "Wake-On-LAN"}, {"controller" => "ping", "label" => "Ping"}) %>
+        <%= navigation({"controller" => "home", "label" => "Home"}, {"controller" => "computers", "label" => "Computers"}, {"controller" => "wakeonlan", "label" => "Wake-On-LAN"}, {"controller" => "ping", "label" => "Ping"}, {"controller" => "contact", "label" => "Contact"}) %>
       </div>
       <div id="container">
         <%- flash.each do |name, msg| -%>
