@@ -18,7 +18,14 @@ class MessagesController < ApplicationController
   # Save a new computer using given parameters
   def create
     @message = Message.new(params[:message])
-    @message.user_id = current_user.id unless !logged_in?
+    
+    if logged_in?
+      @message.user_id = current_user.id
+      @message.firstname = current_user.firstname unless current_user.firstname.blank?
+      @message.lastname = current_user.lastname unless current_user.lastname.blank?
+      @message.email = current_user.email unless current_user.email.blank?
+    end
+    
     @message.user_agent = request.headers["USER_AGENT"]
     
     respond_to do |format|

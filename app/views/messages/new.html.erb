@@ -5,15 +5,27 @@
   <%= f.error_messages %>
   <p>
     <%= f.label :firstname, "First Name" %><br />
-    <%= f.text_field :firstname %>
+    <% if logged_in? && !current_user.firstname.blank? %>
+      <%= f.text_field :firstname, :value => current_user.firstname, :disabled => "disabled" %>
+    <% else %>
+      <%= f.text_field :firstname %>
+    <% end %>
   </p>
   <p>
     <%= f.label :lastname, "Last Name" %><br />
-    <%= f.text_field :lastname %>
+    <% if logged_in? && !current_user.lastname.blank? %>
+      <%= f.text_field :lastname, :value => current_user.lastname, :disabled => "disabled" %>
+    <% else %>
+      <%= f.text_field :lastname %>
+    <% end %>
   </p>
   <p>
     <%= f.label :email, "Email Address" %><br />
-    <%= f.text_field :email %>
+    <% if logged_in? && !current_user.email.blank? %>
+      <%= f.text_field :email, :value => current_user.email, :disabled => "disabled" %>
+    <% else %>
+      <%= f.text_field :email %>
+    <% end %>
   </p>
   <p>
     <%= f.label :subject, "Subject" %><br />

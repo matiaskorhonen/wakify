@@ -4,7 +4,7 @@
 <strong>First Name:</strong> <%= @message.firstname %><br />
 <strong>Last Name:</strong> <%= @message.lastname %><br />
 <strong>Email:</strong> <%= @message.email %><br />
-<strong>User ID:</strong> <%= @message.user_id ||= "(not logged in)" %><br />
+<strong>User ID:</strong> <% if @message.user_id == 0 -%><%= @message.user_id %><% else -%>(not logged in)<% end -%><br />
 <% unless @user.nil? -%>
 <strong>Username:</strong> <%= @user.username %><br />
 <% end -%>

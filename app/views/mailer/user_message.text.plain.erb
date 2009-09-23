@@ -4,7 +4,7 @@ Message from the <%= APP_CONFIG[:sitename] %> contact form
 First Name: <%= @message.firstname %>
 Last Name: <%= @message.lastname %>
 Email: <%= @message.email %>
-User ID: <%= @message.user_id ||= "(not logged in)" %>
+User ID: <% if @message.user_id == 0 -%><%= @message.user_id %><% else -%>(not logged in)<% end -%>
 <% unless @user.nil? -%>
 Username: <%= @user.username %>
 <% end -%>
