@@ -2,6 +2,10 @@
 
 <p>Don't have an account? <%= link_to "Sign up!", signup_path %></p>
 
+<p>
+  Lost your activation link or password? <%= link_to "Request a new one here", requests_path %>.
+</p>
+
 <% form_tag sessions_path do %>
   <p>
     <%= label_tag :login, "Username or Email Address" %><br />
