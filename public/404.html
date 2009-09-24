@@ -6,25 +6,47 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <title>The page you were looking for doesn't exist (404)</title>
+	<link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAzSURBVDiNY9x48OJ/BjzAf+kvfNIMTHhliQCjBgwGA1gW3hLEq+D/TFlGmrpg1IDBYAAAdQgIlBr8WuYAAAAASUVORK5CYIA==" rel="icon" type="image/png" /
 	<style type="text/css">
-		body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
+		body {
+			background: #000;
+			color: #fff;
+			text-align: center;
+			font-family: arial, sans-serif;
+			font-size: 9pt;
+			}
 		div.dialog {
-			width: 25em;
-			padding: 0 4em;
-			margin: 4em auto 0 auto;
-			border: 1px solid #ccc;
-			border-right-color: #999;
-			border-bottom-color: #999;
 		}
-		h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+		#wrapper {
+			background: #000 url('images/ErrorImage.png') no-repeat 0 0;
+			width: 700px;
+			margin: 0 auto 0 auto;
+			padding: 90px 10px;
+		}
+		h1.reallybig {
+			font-size: 140pt;
+			padding: 0;
+			margin: 0;
+			color: #cc0000;
+			font-family: "Bitsream Vera Sans Mono", "Courier New", monospace;
+		}
+		.error {
+			font-size: 12pt;
+			font-weight: bold;
+		}
 	</style>
 </head>
 
 <body>
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <h1>The page you were looking for doesn't exist.</h1>
-    <p>You may have mistyped the address or the page may have moved.</p>
-  </div>
+	<div id="wrapper">
+		<div class="dialog">
+			<h1 class="reallybig">404</h1>
+			<p>
+				<span class="error">The page you were looking for doesn't exist.</span><br />
+				You may have mistyped the address or the page may have moved.
+			</p>
+		</div>	
+	</div>
 </body>
 </html>
