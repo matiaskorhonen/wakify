@@ -6,7 +6,7 @@ module ApplicationHelper
     xhtml = "<ul>\n"
     
     controllers.each do |c|
-      xhtml << '<li>' + link_to(c["label"], "/" + c["controller"]) + '</li>'
+      xhtml << '<li>' + link_to(c[:label] ||= c[:controller].capitalize, "/" + c[:controller]) + '</li>'
     end
     
     pages = Page.find_all_by_navigation(true)
