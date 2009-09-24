@@ -2,6 +2,7 @@
 # Answers are encrypted using AES-128
 class Captcha
   require 'linguistics'
+  require 'digest'
   attr_accessor :lower_limit, :higher_limit, :salt
   
   # Initialize the class and set the lower and upper limits of the questions
@@ -41,7 +42,7 @@ class Captcha
         a = operands.max - operands.min
     end
     
-    return {"question" => q, "hashed_answer" => hash_answer(a)}
+    return {:question => q, :hashed_answer => hash_answer(a)}
   end
   
   # Check if a given answer is correct, returns a boolean
@@ -51,7 +52,7 @@ class Captcha
   # * attempt - The answer attempt from the user
   # * salt - The salt used when the question answer pair was created
   def check_answer(hashed_answer, attempt)
-    return hashed_answer == hash_answer(answer)
+    return hashed_answer == hash_answer(attempt)
   end
   
 private
