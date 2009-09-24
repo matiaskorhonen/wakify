@@ -39,7 +39,10 @@
         <%- end -%>
         
         <%= yield %>
-      </div>  
+      </div>
+      <div id="footer">
+        <p><%= APP_CONFIG[:footer_text]%></p>
+      </div>
     </div>
       <%= render:partial => "/layouts/google_analytics" if APP_CONFIG[:ga_enabled] -%>
   </body>
