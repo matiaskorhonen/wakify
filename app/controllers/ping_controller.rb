@@ -33,9 +33,7 @@ protected
     
     if !valid_hostname
       flash[:error] = "You need to enter a valid host!"
-      respond_to do |format|
-        format.html { redirect_to :controller => "ping" }
-      end
+      redirect_to :controller => "ping", :action => "index"
     end
   end
 end
