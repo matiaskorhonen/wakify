@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_filter :login_required, :except => [:new, :create, :sent]
   before_filter :authorize, :except => [:new, :create, :sent]
-  before_filter :captcha_validation, :only => [:quickping] if APP_CONFIG[:captcha_enable]
+  before_filter :captcha_validation, :only => [:create] if APP_CONFIG[:captcha_enabled]
   
   def index
     @messages = Message.all

@@ -1,2 +1,2 @@
-module MessagesHelper
+module MessagesHelper  # :nodoc: all
 end

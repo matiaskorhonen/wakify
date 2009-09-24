@@ -29,6 +29,7 @@ class ComputersController < ApplicationController
   # Save a new computer using given parameters
   def create
     @computer = current_user.computers.new(params[:computer])
+    
     respond_to do |format|
       if @computer.save
         flash[:notice] = 'Computer was successfully created.'

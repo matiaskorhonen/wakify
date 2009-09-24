@@ -59,17 +59,13 @@ class ApplicationController < ActionController::Base
     
     if hostname_regex.match(address)
       if /\A(?:25[0-5]|(?:2[0-4]|1\d|[1-9])?\d)(?:\.(?:25[0-5]|(?:2[0-4]|1\d|[1-9])?\d)){3}\z/.match(address)
-        valid_ip = private_ip?(address)
+        valid = private_ip?(address)
       else
-        valid_hostname = hostname_resolves?(address)
+        valid = hostname_resolves?(address)
       end
     end
     
-    if valid_ip || valid_hostname
-      return true
-    else
-      return false
-    end
+    return valid
   end
   
   # Check if a MAC address is valid.

@@ -37,8 +37,6 @@
         <%= yield %>
       </div>  
     </div>
-    <% if APP_CONFIG[:ga_enabled] -%>
-      <%= render :partial => "/layouts/google_analytics" %>
-    <% end -%>
+      <%= render:partial => "/layouts/google_analytics" if APP_CONFIG[:ga_enabled] -%>
   </body>
 </html>

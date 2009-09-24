@@ -17,7 +17,6 @@ class WakeonlanController < ApplicationController
     c = current_user.computers.find(params[:id])
     
     flash[:notice] = wakehost(c.mac, c.host, c.port)
-    
     redirect_to request.referer
   end
 
