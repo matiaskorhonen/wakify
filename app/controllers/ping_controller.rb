@@ -1,6 +1,6 @@
 class PingController < ApplicationController
   before_filter :quickping_validation, :only => [:quickping]
-  before_filter :captcha_validation, :only => [:quickping] if APP_CONFIG[:captcha_enable]
+  before_filter :captcha_validation, :only => [:quickping] if APP_CONFIG[:captcha_enabled]
   
   def index
   end
