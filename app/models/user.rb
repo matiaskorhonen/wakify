@@ -38,7 +38,11 @@ class User < ActiveRecord::Base
   end
   
   def fullname
-    return self.firstname + " " + self.lastname
+    if self.firstname || self.lastname
+      return self.firstname.to_s + " " + self.lastname.to_s
+    else
+      return "Anonymous"
+    end
   end
   
   # Check if a user has activated their account
