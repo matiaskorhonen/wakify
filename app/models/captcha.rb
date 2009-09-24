@@ -1,16 +1,16 @@
 # Captcha provides a custom math capthca generator.
 # Answers are encrypted using AES-128
 class Captcha
-  require 'ezcrypto'
   require 'linguistics'
-  attr_accessor :lower_limit, :higher_limit
+  attr_accessor :lower_limit, :higher_limit, :salt
   
   # Initialize the class and set the lower and upper limits of the questions
   #
   # The lower limit is inclusive and the higher limit is exclusive.
-  def initialize(lower_limit = 0, higher_limit = 10)
+  def initialize(salt, lower_limit = 0, higher_limit = 10)
     @lower_limit = lower_limit
     @higher_limit = higher_limit
+    @salt = salt
   end
   
   # Generate a question and answer pair as a hash
@@ -22,10 +22,8 @@ class Captcha
   #
   # Answers are always positive
   #
-  # The answer is delivered in encrypted, base64 encoded form.
-  def generate_qa(password, salt)
-    key = EzCrypto::Key.with_password password, salt
-    
+  # The answer is delivered salted and hashed (SHA-256)
+  def generate_qa
     base_question = "What is "
     operators = ["+", "*", "-"]
     
@@ -43,20 +41,17 @@ class Captcha
         a = operands.max - operands.min
     end
     
-    return {"question" => q, "encrypted_answer" => key.encrypt64(a.to_s).strip}
+    return {"question" => q, "hashed_answer" => hash_answer(a)}
   end
   
   # Check if a given answer is correct, returns a boolean
   #
   # To test the answer the following inputs are required:
-  # * encrypted_answer - The encrypted answer from generate_qa
+  # * hashed_answer - The encrypted answer from generate_qa
   # * attempt - The answer attempt from the user
-  # * password - The password used when the question answer pair was created
-  # * salt - The password used when the question answer pair was created
-  def check_answer(encrypted_answer, attempt, password, salt)
-    key = EzCrypto::Key.with_password password, salt
-    
-    return key.decrypt64(encrypted_answer) == attempt.to_s
+  # * salt - The salt used when the question answer pair was created
+  def check_answer(hashed_answer, attempt)
+    return hashed_answer == hash_answer(answer)
   end
   
 private
@@ -76,5 +71,10 @@ private
   # * max - the upper limit (exclusive)
   def rand_range(min, max)
     min + rand(max-min)
+  end
+  
+  # Generate the SHA-256 answer hash
+  def hash_answer(answer)
+    Digest::SHA2.hexdigest([answer.to_s, salt].join)
   end
 end

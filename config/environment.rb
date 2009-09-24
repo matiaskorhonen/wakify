@@ -21,7 +21,6 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem "net-ping", :lib => "net/ping"
   config.gem "RedCloth"
-  config.gem "ezcrypto"
   config.gem "Linguistics", :lib => "linguistics"
 
   # Only load the plugins named here, in the order given (default is alphabetical).

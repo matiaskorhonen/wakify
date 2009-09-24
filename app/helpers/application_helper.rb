@@ -20,13 +20,13 @@ module ApplicationHelper
   
   # Construct Captcha tags for a form
   def captcha_tags
-    c = Captcha.new(APP_CONFIG[:captcha_lower_limit], APP_CONFIG[:captcha_upper_limit])
-    qa = c.generate_qa(APP_CONFIG[:captcha_password], APP_CONFIG[:captcha_salt])
+    c = Captcha.new(APP_CONFIG[:captcha_salt], APP_CONFIG[:captcha_lower_limit], APP_CONFIG[:captcha_upper_limit])
+    qa = c.generate_qa
     
     xhtml = label_tag("captcha_attempt", qa["question"])
     xhtml << "<br />"
     xhtml << password_field_tag("captcha_attempt")
-    xhtml << hidden_field_tag("encrypted_answer", qa["encrypted_answer"])
+    xhtml << hidden_field_tag("hashed_answer", qa["hashed_answer"])
   end
   
   def safe_textilize(text)

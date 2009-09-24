@@ -38,8 +38,8 @@ class ApplicationController < ActionController::Base
   #
   # Also *captcha_attempt* and *captcha_salt* have to be set in the configuration file.
   def captcha_validation
-    c = Captcha.new
-    success = c.check_answer(params[:encrypted_answer], params[:captcha_attempt], APP_CONFIG[:captcha_password], APP_CONFIG[:captcha_salt])
+    c = Captcha.new(APP_CONFIG[:captcha_salt], APP_CONFIG[:captcha_lower_limit], APP_CONFIG[:captcha_upper_limit])
+    success = c.check_answer(params[:hashed_answer])
     if !success
       flash[:error] = "Failed CAPTCHA! Remember to answer as a number (i.e. '6', not 'six')"
       respond_to do |format|
