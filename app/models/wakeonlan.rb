@@ -1,22 +1,38 @@
-# K.Kodama 2003-04-20 revised/bug fix
-# K.Kodama 2000-05-10
-# This program is distributed freely 
-# in the sense of GNU General Public License or ruby's.
-
+# Copyright (C) 2000-2003  K.Kodama
+#
+# Modified by Matias Korhonen (26.09.2009: Removed command line options, changed to
+# send the magic packet straight to the IP, not the broadcast address)
+#
+# Licensed under the Ruby License: http://www.ruby-lang.org/en/LICENSE.txt
+# and the GNU General Public License: http://www.gnu.org/copyleft/gpl.html
+#
 require "socket"
 
 class WakeOnLan
   attr :socket
+  
   def initialize
     @socket=UDPSocket.open()
     @socket.setsockopt(Socket::SOL_SOCKET,Socket::SO_BROADCAST,1)
   end
+  
   def close
     @socket.close
     @socket=""
   end
-  def wake(mac_addr, ip = "255.255.255.255", port = 9, count = 3)
-    wol_magic=(0xff.chr)*6+(mac_addr.split(/:/).pack("H*H*H*H*H*H*"))*16
-    count.times{ @socket.send(wol_magic, 0, ip, port) }
+  
+  def wake(options = {})
+    mac = options[:mac] ||= "ff:ff:ff:ff:ff:ff"
+    address = options[:address] ||= "255.255.255.255"
+    port = options[:port] ||= 9
+    count = options[:count] || 1
+    interval = options[:interval] || 0.01
+    
+    magicpacket = (0xff.chr)*6+(mac.split(/:/).pack("H*H*H*H*H*H*"))*16
+    
+    count.times {
+      sleep interval
+      @socket.send(magicpacket, 0, address, port)
+    }
   end
 end
