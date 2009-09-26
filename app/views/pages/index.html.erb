@@ -1,10 +1,14 @@
 <% title "Pages" %>
 
-<ul>
-  <% for page in @pages %>
-    <li><%= link_to page.name, static_path(page.permalink) %></li>
-  <% end %>
-</ul>
+<% if !@pages.nil? -%>
+  <ul>
+    <% for page in @pages %>
+      <li><%= link_to page.name, static_path(page.permalink) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Sorry, no pages have been added.</p>
+<% end %>
 
 <% if admin? %>
   <p><%= link_to "New Page", new_page_path %></p>
