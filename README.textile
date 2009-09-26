@@ -18,6 +18,8 @@ The "jQuery":http://jquery.com/ JavaScript library is included in the @public/ja
 
 The "IE8.js":http://code.google.com/p/ie7-js/ JavaScript library was created byDean Edwards, and it aims to make Internet Explorer (pre-IE8) behave more like a standards compliant browser. It is licensed under a "MIT":http://www.opensource.org/licenses/mit-license.php license.
 
+*Chroma Hash* is a jQuery plugin that acts as a visual helper for password entry.  It was created by "Matt Thompson":http://mattt.me and is licensed under the "MIT":http://www.opensource.org/licenses/mit-license.php license. I'm using a fork created by "Joel Moss":http://codaset.com/joelmoss/ that removes the dependency on jQueryUI.
+
 h2. Gems
 
 The following gems are required to run the application:
