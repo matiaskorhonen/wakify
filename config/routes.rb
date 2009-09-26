@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.requests 'requests', :controller => 'users', :action => 'requests'
   map.password_reset 'password_reset/:code', :controller => 'users', :action => 'reset_password'
   map.contact 'contact', :controller => 'messages', :action => 'new'
+  map.terms 'terms', :controller => 'users', :action => 'termsofservice'
   
   map.resources :sessions
   map.resources :users

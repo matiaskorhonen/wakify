@@ -125,4 +125,7 @@ class UsersController < ApplicationController
         format.html { redirect_to :root }
     end
   end
+  
+  def termsofservice
+  end
 end

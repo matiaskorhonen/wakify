@@ -39,34 +39,7 @@
   </p>
   <div id="terms">
     <h3>Terms of Service</h3>
-    <p>By signing up you agree to the following terms:</p>
-    <ul>
-      <li>
-        You will not use this service to interfere with the operation of
-        networks, devices, hosts, or services that you do not have the
-        appropriate rights.
-      </li>
-      <li>
-        You will not use this service as an aid to any activities deemed illegal
-        and/or unethical under international and/or Finnish law.
-      </li>
-      <li>
-        You agree that any legal disputes will be settled under Finnish law
-        in a Finnish court.
-      </li>
-      <li>
-        If the maintainer of this service deems that you have broken one or more
-        of these terms your account may be terminated with seven (7) days notice.
-        The notice will be delivered using the email address provided by you in
-        your account details. This waiting period may be waived if you are
-        actively causing harm to the service or to a third party.
-      </li>
-      <li>
-        These terms may be amended at any point so long as the users of the
-        service are notified of the amendments by email at least seven (7) days
-        in advance.
-      </li>
-    </ul>
+    <%= render :partial => "terms" %>
   </div>
   <p><%= f.submit "Sign up" %></p>
 <% end %>
