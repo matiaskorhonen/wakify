@@ -8,9 +8,10 @@
 class User < ActiveRecord::Base
   has_many :computers
   # new columns need to be added here to be writable through mass assignment
-  attr_accessible :firstname, :lastname, :username, :email, :password, :password_confirmation
+  attr_accessible :firstname, :lastname, :username, :email, :password, :password_confirmation, :terms
   
-  attr_accessor :password
+  attr_accessor :password, :terms
+  
   before_save :prepare_password
   before_create :add_activation_code
   
@@ -21,6 +22,7 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   validates_confirmation_of :password
   validates_length_of :password, :minimum => 6, :allow_blank => true
+  validates_acceptance_of :terms, :message => "must be accepted."
   
   # Login can be either username or email address
   def self.authenticate(login, pass)

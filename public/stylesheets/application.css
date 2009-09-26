@@ -259,3 +259,29 @@ span.address {
   font-style: italic;
   font-size: 9pt;
 }
+
+#toslink {
+  font-size: 9pt;
+  display: none;
+}
+
+#terms {
+  border: 1px solid #aaa;
+  width: 400px;
+  height: 150px;
+  overflow: auto;
+  font-size: 8pt;
+}
+
+#terms h3 {
+  margin-top: 3px;
+}
+
+#terms ul {
+  padding: 0 0 0 2em;
+  list-style: square;
+}
+
+#terms li {
+  padding-top: 0.5em;
+}
