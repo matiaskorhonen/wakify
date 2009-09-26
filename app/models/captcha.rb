@@ -3,14 +3,14 @@
 class Captcha
   require 'linguistics'
   require 'digest'
-  attr_accessor :lower_limit, :higher_limit, :salt
+  attr_accessor :lower_limit, :upper_limit, :salt
   
   # Initialize the class and set the lower and upper limits of the questions
   #
-  # The lower limit is inclusive and the higher limit is exclusive.
-  def initialize(salt, lower_limit = 0, higher_limit = 10)
+  # The lower limit is inclusive and the upper limit is exclusive.
+  def initialize(salt, lower_limit = 0, upper_limit = 10)
     @lower_limit = lower_limit
-    @higher_limit = higher_limit
+    @upper_limit = upper_limit
     @salt = salt
   end
   
@@ -28,7 +28,7 @@ class Captcha
     base_question = "What is "
     operators = ["+", "*", "-"]
     
-    operands = [rand_range(lower_limit, higher_limit), rand_range(lower_limit, higher_limit)]
+    operands = [rand_range(lower_limit, higher_limit), rand_range(lower_limit, upper_limit)]
     
     case operators[rand(operators.length)]
       when "+"
@@ -48,9 +48,8 @@ class Captcha
   # Check if a given answer is correct, returns a boolean
   #
   # To test the answer the following inputs are required:
-  # * hashed_answer - The encrypted answer from generate_qa
-  # * attempt - The answer attempt from the user
-  # * salt - The salt used when the question answer pair was created
+  # * <tt>hashed_answer</tt> - The encrypted answer from generate_qa
+  # * <tt>attempt</tt> - The answer attempt from the user
   def check_answer(hashed_answer, attempt)
     return hashed_answer == hash_answer(attempt)
   end

@@ -22,6 +22,7 @@ class Mailer < ActionMailer::Base
     body          :user => user
   end
   
+  # Message sent out by the contact form.
   def user_message(message, user)
     recipients    APP_CONFIG[:contact_email]
     from          "#{message.fullname} <#{message.email}>"
