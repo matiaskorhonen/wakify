@@ -2,7 +2,7 @@ development:
   domain: localhost:3000
   sitename: Wakify (dev)
   site_slogan: Quick and Easy Wake-On-LAN
-  footer_text: &copy; 2009 Matias Korhonen
+  footer_text: &#169; 2009 Matias Korhonen
   wol_port: 9
   wol_command: wakeonlan
   ping_command: ping
@@ -18,7 +18,7 @@ test:
   domain: test.host
   sitename: Wakify (test)
   site_slogan: Quick and Easy Wake-On-LAN
-  footer_text: &copy; 2009 Matias Korhonen
+  footer_text: &#169; 2009 Matias Korhonen
   wol_port: 9
   wol_command: wakeonlan
   ping_command: ping
@@ -34,7 +34,7 @@ production:
   domain: wakify.com
   sitename: Wakify
   site_slogan: Quick and Easy Wake-On-LAN
-  footer_text: &copy; 2009 Matias Korhonen
+  footer_text: &#169; 2009 Matias Korhonen
   wol_port: 9
   wol_command: wakeonlan
   ping_command: ping
