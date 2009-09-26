@@ -33,18 +33,31 @@ class WakeOnLan
   # * <tt>:port => 9</tt> - The destination port. Defaults to the discard port, 9
   # * <tt>:count => 1</tt> - How many time to send the MagicPacket.  Defaults to 1
   # * <tt>:interval => 0.01</tt> - How many seconds to wait between sending packets. Defaults to 0.01
+  # * <tt>:verbose => false</tt> - What to return?  Returns a string summary if true, else returns <tt>:count</tt>.
   def wake(options = {})
     mac = options[:mac] ||= "ff:ff:ff:ff:ff:ff"
     address = options[:address] ||= "255.255.255.255"
     port = options[:port] ||= 9
     count = options[:count] || 1
     interval = options[:interval] || 0.01
+    verbose = options[:verbose] || false
     
     magicpacket = (0xff.chr)*6+(mac.split(/:/).pack("H*H*H*H*H*H*"))*16
     
     count.times {
-      sleep interval if interval > 0
       @socket.send(magicpacket, 0, address, port)
+      
+      sleep interval if interval > 0 unless count == 1
     }
+    
+    if verbose
+      if count == 1
+        return "Sending magic packet to #{address}:#{port} with #{mac}"
+      else
+        return "Sending magic packet to #{address}:#{port} with #{mac} #{count} times"
+      end
+    else
+      return count
+    end
   end
 end

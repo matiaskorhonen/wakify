@@ -4,7 +4,13 @@ Wakify will be an easy to use web application that let's you wake your computers
 
 h2. Requirements
 
-You will need to have wakeonlan installed on your computer. The program is available in most distributions' repositories.
+Wakify needs to have access to your system Ping command (part iputils).
+
+Wakify expects that your system ping to respond appropriately to a command such as the following:
+
+@ping example.com -c 3@
+
+Where _-c_ sets the number of packets to send.
 
 h2. Thanks
 

@@ -4,7 +4,7 @@ development:
   site_slogan: Quick and Easy Wake-On-LAN
   footer_text: &#169; 2009 Matias Korhonen
   wol_port: 9
-  wol_command: wakeonlan
+  wol_count: 3
   ping_command: ping
   captcha_enabled: true
   captcha_salt: 709b483739c8deddea3511fb1a0ff6477e035008
@@ -20,7 +20,7 @@ test:
   site_slogan: Quick and Easy Wake-On-LAN
   footer_text: &#169; 2009 Matias Korhonen
   wol_port: 9
-  wol_command: wakeonlan
+  wol_count: 3
   ping_command: ping
   captcha_enabled: false
   captcha_salt: 709b483739c8deddea3511fb1a0ff6477e035008
@@ -36,7 +36,7 @@ production:
   site_slogan: Quick and Easy Wake-On-LAN
   footer_text: &#169; 2009 Matias Korhonen
   wol_port: 9
-  wol_command: wakeonlan
+  wol_count: 3
   ping_command: ping
   captcha_enabled: false
   captcha_salt: 709b483739c8deddea3511fb1a0ff6477e035008

@@ -1,5 +1,7 @@
 # Controller for waking hosts
 class WakeonlanController < ApplicationController
+  require 'wakeonlan'
+  
   before_filter :quickwake_validation, :only => [:quickwake]
   before_filter :captcha_validation, :only => [:quickwake] if APP_CONFIG[:captcha_enabled]
   
@@ -26,9 +28,15 @@ class WakeonlanController < ApplicationController
 
 protected
 
-  # Use the system wakeonlan command to send a MagicPacket
-  def wakehost(mac, host, port=APP_CONFIG[:wol_port], command = APP_CONFIG[:wol_command])
-    return `#{command} -p #{port} -i #{host} #{mac}`
+  # Use the WakeOnLan class to send a MagicPacket
+  def wakehost(mac, host, port=APP_CONFIG[:wol_port])
+    wol = WakeOnLan.new
+    
+    result = wol.wake(:mac => mac, :address => host, :port => port, :verbose => true, :count => APP_CONFIG[:wol_count])
+    
+    wol.close
+    
+    return result
   end
   
   # Validate that the given host and mac addresses are properly formatted.
