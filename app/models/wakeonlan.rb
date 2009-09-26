@@ -6,14 +6,17 @@
 require "socket"
 
 class WakeOnLan
-	attr :socket
-	def initialize
-		@socket=UDPSocket.open()
-		@socket.setsockopt(Socket::SOL_SOCKET,Socket::SO_BROADCAST,1)
-	end;
-	def close; @socket.close; @socket=""; end
-	def wake(mac_addr, ip = "255.255.255.255", port = 9, count = 3)
-		wol_magic=(0xff.chr)*6+(mac_addr.split(/:/).pack("H*H*H*H*H*H*"))*16
-		count.times{ @socket.send(wol_magic, 0, ip, port) }
-	end
+  attr :socket
+  def initialize
+    @socket=UDPSocket.open()
+    @socket.setsockopt(Socket::SOL_SOCKET,Socket::SO_BROADCAST,1)
+  end
+  def close
+    @socket.close
+    @socket=""
+  end
+  def wake(mac_addr, ip = "255.255.255.255", port = 9, count = 3)
+    wol_magic=(0xff.chr)*6+(mac_addr.split(/:/).pack("H*H*H*H*H*H*"))*16
+    count.times{ @socket.send(wol_magic, 0, ip, port) }
+  end
 end
