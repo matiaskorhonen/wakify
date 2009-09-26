@@ -55,6 +55,7 @@ class ComputersController < ApplicationController
     end
   end
   
+  # Delete a stored computer
   def delete
     @computer = current_user.computers.find(params[:id])
     

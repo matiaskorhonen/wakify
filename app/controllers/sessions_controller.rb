@@ -1,7 +1,9 @@
+# Controller for managing User Sessions
 class SessionsController < ApplicationController
   def new
   end
   
+  # Create a new Session (i.e. login)
   def create
     user = User.authenticate(params[:login], params[:password])
     if user
@@ -19,6 +21,7 @@ class SessionsController < ApplicationController
     end
   end
   
+  #Destro a Session (i.e. logout)
   def destroy
     session[:user_id] = nil
     flash[:notice] = "You have been logged out."

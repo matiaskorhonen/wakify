@@ -1,10 +1,13 @@
+# Controller for pinging hosts
 class PingController < ApplicationController
   before_filter :quickping_validation, :only => [:quickping]
   before_filter :captcha_validation, :only => [:quickping] if APP_CONFIG[:captcha_enabled]
   
+  # Allow the user to ping a host which has not been saved as a computer
   def index
   end
   
+  # Ping a host that has not been saved as a Computer, and display the results to the user
   def quickping
     @host_to_ping = params[:host_to_ping]
     
@@ -13,6 +16,7 @@ class PingController < ApplicationController
     @result = p.ping
   end
   
+  # Ping a stored Computer and display the results in a flash notice.
   def ping_computer
     c = current_user.computers.find(params[:id])
     
@@ -24,10 +28,12 @@ class PingController < ApplicationController
   
 protected
 
+  # Use the system ping to ping a host
   def system_ping(host = "127.0.0.1", count = 3, command = APP_CONFIG[:ping_command])
     return `#{command} #{host} -c #{count}`
   end
   
+  # Validate that the given host is properly formatted.
   def quickping_validation
     valid_hostname = valid_hostname?(params[:host_to_ping])
     

@@ -33,10 +33,14 @@ class User < ActiveRecord::Base
     return Computer.find_by_user_id(self.id)
   end
   
+  # Check if a given password matches the stored hash
   def matching_password?(pass)
     self.password_hash == encrypt_password(pass)
   end
   
+  # Return the full name of the user.
+  #
+  # If both the firstname and the lastname are nil, return "Anonymous"
   def fullname
     if self.firstname || self.lastname
       return self.firstname.to_s + " " + self.lastname.to_s

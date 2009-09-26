@@ -66,6 +66,7 @@ class Computer < ActiveRecord::Base
     return !resolve_hostname(hostname).nil?
   end
   
+  # This is for creating pretty, SEO URLs.
   def to_param
     "#{self.id}-#{self.name.parameterize}"
   end

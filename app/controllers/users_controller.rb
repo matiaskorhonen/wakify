@@ -1,18 +1,23 @@
+# Controller for managing User actions and views
 class UsersController < ApplicationController
   before_filter :login_required, :only => [:show, :edit, :update]
   
+  # Show user details
   def show
     @user = current_user
   end
   
+  # Define a new user
   def new
     @user = User.new
   end
   
+  # Edit an existing user
   def edit
     @user = current_user
   end
   
+  # Create a new user (i.e. sign up)
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -23,6 +28,7 @@ class UsersController < ApplicationController
     end
   end
   
+  # Save updated user details
   def update
     @user = current_user
     @user.attributes = params[:user]
@@ -41,6 +47,7 @@ class UsersController < ApplicationController
     end
   end
   
+  # Activate a registered user
   def activate
     @user = User.find_by_activation_code(params[:activation_code])
     raise ActiveRecord::RecordNotFound, "No such activation code" if @user.nil?
@@ -51,9 +58,11 @@ class UsersController < ApplicationController
     end
   end
   
+  # User requests view (Resend activation code & send password reset)
   def requests
   end
   
+  # Resend Activation code to the User's email address
   def resend_activation
     user = User.find_by_email(params[:email])
     
@@ -71,6 +80,7 @@ class UsersController < ApplicationController
     redirect_to requests_path
   end
   
+  # Send a password link to the User's email address
   def send_password_reset
     user = User.find_by_email(params[:email])
     
@@ -89,6 +99,7 @@ class UsersController < ApplicationController
     redirect_to requests_path
   end
   
+  # Reset a User's password when using a password reset link
   def reset_password
     @user = User.find_by_password_reset(params[:code])
     
@@ -98,6 +109,7 @@ class UsersController < ApplicationController
     end
   end
   
+  # Change a user's password when using a password reset link
   def change_password
     @user = User.find_by_password_reset(params[:user][:password_reset])
     

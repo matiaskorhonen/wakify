@@ -1,21 +1,25 @@
+# Controllor for Message related actions and views.
 class MessagesController < ApplicationController
   before_filter :login_required, :except => [:new, :create, :sent]
   before_filter :authorize, :except => [:new, :create, :sent]
   before_filter :captcha_validation, :only => [:create] if APP_CONFIG[:captcha_enabled]
   
+  # List all messages, only available to to admins
   def index
     @messages = Message.all
   end
 
+  # Show a particular message, only available to admins
   def show
     @message = Message.find(params[:id])
   end
 
+  # View for creating and sending new messages
   def new
     @message = Message.new
   end
 
-  # Save a new computer using given parameters
+  # Create a new message in the system
   def create
     @message = Message.new(params[:message])
     
@@ -37,6 +41,7 @@ class MessagesController < ApplicationController
     end
   end
   
+  # View for displaying a confirmation for the user that their message was sent.
   def sent
     @message = params[:message]
     if @message.user_id.nil?
