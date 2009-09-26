@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
   validates_presence_of :password, :on => :create
   validates_confirmation_of :password
-  validates_length_of :password, :minimum => 4, :allow_blank => true
+  validates_length_of :password, :minimum => 6, :allow_blank => true
   
   # Login can be either username or email address
   def self.authenticate(login, pass)
@@ -52,17 +52,17 @@ class User < ActiveRecord::Base
   
   # Find the user's password reset code
   def password_reset_code
-    self.password_reset.split(';', 2)[1]
+    self.password_reset.split('-', 2)[1]
   end
   
   # Find the password reset generation time
   def password_reset_time
-    Time.at(self.password_reset.split(';', 2)[0].to_i)
+    Time.at(self.password_reset.split('-', 2)[0].to_i)
   end
   
   # Add a password reset to the user
   def add_password_reset
-    self.password_reset = "#{Time.now.to_i};#{Digest::SHA1.hexdigest([Time.now, rand].join)}"
+    self.password_reset = "#{Time.now.to_i}-#{Digest::SHA1.hexdigest([Time.now, rand].join)}"
   end
   
   private
