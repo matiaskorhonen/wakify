@@ -28,7 +28,7 @@ class Captcha
     base_question = "What is "
     operators = ["+", "*", "-"]
     
-    operands = [rand_range(lower_limit, higher_limit), rand_range(lower_limit, upper_limit)]
+    operands = [rand_range(lower_limit, upper_limit), rand_range(lower_limit, upper_limit)]
     
     case operators[rand(operators.length)]
       when "+"
