@@ -1,0 +1,180 @@
+/*  Basic Style Sheet (launching soon plugin by Vinsol)
+    version: 1
+    author: Bhavesh Dhupar
+    email: bhavesh@vinsol.com
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #2e3436;
+  color: #eee;
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 62.5%;
+}
+
+.clear {
+  overflow: hidden;
+}
+
+h3 {
+  color: #fff;
+  font-size: 2.2em;
+}
+
+.container {
+  width: 100%;
+}
+
+.header {
+  height: 202px;
+  width: 100%;
+}
+
+div.logo {
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  width: 1022px;
+}
+
+img.logo {
+  padding: 20px;
+}
+
+.tagline {
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 2.2em;
+  font-style: italic;
+  margin: 50px auto 50px;
+  text-align: center;
+  width: 723px;
+}
+
+#messageBox {
+  background: url(/images/launching_soon/divider.jpg) repeat-x left top;
+  margin: 0 auto;
+  padding: 20px 0 0;
+  width: 723px;
+}
+
+#messageBox .clear {
+  background: url(/images/launching_soon/divider.jpg) repeat-x left bottom;
+  padding-bottom: 20px;
+}
+
+.notifyForm {
+  float: left;
+  padding-right: 15px;
+  width: 300px;
+}
+.notifyForm .subscriberEmail {
+  border: 1px solid #000;
+  color: #555;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 10px 0;
+  padding: 11px 0 10px 5px;
+  width: 299px;
+}
+
+.notifyMeButton {
+  border: 1px solid #fff;
+  color: #000;
+  font-size: 16pt;
+  height: 40px;
+  width: 151px;
+}
+
+.notifyForm span {
+  display: block;
+  font-family: georgia;
+  font-size: 1.4em;
+  font-style: italic;
+  margin: 10px 0 0;
+}
+
+.aboutBlk {
+  float: right;
+  padding-left: 15px;
+  width: 300px;
+}
+
+.aboutBlk p {
+  font-size: 1.4em;
+  line-height: 22px;
+  padding: 10px 0;
+}
+
+.aboutBlk p a, #footer span a {
+  color: #fffdc0;
+  text-decoration: none;
+}
+
+.aboutBlk div a {
+  color: #fff;
+  font-family: georgia;
+  font-size: 1.2em;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.lauchTime {
+  margin: 30px 0 40px;
+  width: 100%;
+}
+
+.lauchTime p {
+  font-family: georgia;
+  font-size: 1.9em;
+  text-align: center;
+}
+
+.lauchTime p label {
+  color: #c17d11;
+  font-family: Arial;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.note {
+  font-family: georgia;
+  font-size: 1.4em;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+#errorMessage, #successMessage {
+  background: url(/images/launching_soon/error.png) no-repeat 5px center;
+  border: 1px dotted #A34041;
+  color: #D63430;
+  font-family: georgia;
+  font-size: 1.4em;
+  margin: 10px 0 15px;
+  padding: 10px 10px 10px 40px;
+  width: 290px;
+}
+#successMessage {
+  background: url(/images/launching_soon/success.png) no-repeat 5px center;
+  border: 1px dotted #336d32;
+  color: #339124;
+}
+
+#footer {
+  border-top: 1px solid #333;
+  font-size: 14px;
+  margin: 30px auto 0px;
+  padding: 15px 0 20px;
+  text-align: center;
+  width: 723px;
+}
+
+/*Example CSS to create LCD countdown look*/
+.lcdstyle {
+  color: #e9b96e;
+  font-weight: bold;
+  padding-left: 10px;
+}

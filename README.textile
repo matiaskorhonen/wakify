@@ -36,6 +36,10 @@ The following gems are required to run the application:
 * RedCloth
 * Linguistics
 
+h2. Launching Soon
+
+The "Launching Soon":http://github.com/vinsol/Launching-Soon/ plugin is included as a git submodule.
+
 h2. License
 
 Copyright (C) 2009 Matias Korhonen

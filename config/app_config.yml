@@ -13,6 +13,7 @@ development:
   ga_enabled: false
   ga_tracking_code: UA-xxxxxx-x
   contact_email: support@wakify.com
+  launching_soon: false
 
 test:
   domain: test.host
@@ -29,6 +30,7 @@ test:
   ga_enabled: true
   ga_tracking_code: UA-xxxxxx-x
   contact_email: support@wakify.com
+  launching_soon: false
   
 production:
   domain: wakify.com
@@ -45,3 +47,4 @@ production:
   ga_enabled: true
   ga_tracking_code: UA-xxxxxx-x
   contact_email: support@wakify.com
+  launching_soon: true

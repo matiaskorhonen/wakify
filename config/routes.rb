@@ -17,6 +17,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :wakeonlan
   map.resources :pages
   map.resources :messages
+  map.resources :news_letter_subscribers, :only => [:create]
   
   map.root :controller => "home"
   map.connect ':controller/:action/:id'
