@@ -1,6 +1,6 @@
 h1. Wakify
 
-Wakify will be an easy to use web application that let's you wake your computers from anywhere in the world.
+Wakify is an easy to use web application that lets you wake your computers from anywhere in the world.
 
 h2. Requirements
 
@@ -18,11 +18,13 @@ Thanks to Ryan Bates for his nifty_generators and his excellent Railscasts.
 
 h2. Credits
 
+The WakeOnLan Ruby script found in @app/models/wakeonlan.rb@ was originally written by "K.Kodama":http://www.math.kobe-u.ac.jp/~kodama/tips-WakeOnLAN.html.  I have made significant alterrations to the way it functions and removed some functions that were not necessary for the operation of Wakify.
+
 The icons found in the @public/images/tango/@ directory are part of the "Tango Icon Library":http://tango.freedesktop.org/Tango_Icon_Library and have been released into the public domain.
 
 The "jQuery":http://jquery.com/ JavaScript library is included in the @public/javascripts/@ directory and it is licensed under both the "GPLv2":http://jquery.com/dev/svn/trunk/jquery/GPL-LICENSE.txt and "MIT":http://jquery.com/dev/svn/trunk/jquery/MIT-LICENSE.txt licenses.
 
-The "IE8.js":http://code.google.com/p/ie7-js/ JavaScript library was created byDean Edwards, and it aims to make Internet Explorer (pre-IE8) behave more like a standards compliant browser. It is licensed under a "MIT":http://www.opensource.org/licenses/mit-license.php license.
+The "IE8.js":http://code.google.com/p/ie7-js/ JavaScript library was created by Dean Edwards, and it aims to make Internet Explorer (pre-IE8) behave more like a standards compliant browser. It is licensed under a "MIT":http://www.opensource.org/licenses/mit-license.php license.
 
 *Chroma Hash* is a jQuery plugin that acts as a visual helper for password entry.  It was created by "Matt Thompson":http://mattt.me and is licensed under the "MIT":http://www.opensource.org/licenses/mit-license.php license. I'm using a fork created by "Joel Moss":http://codaset.com/joelmoss/ that removes the dependency on jQueryUI.
 
