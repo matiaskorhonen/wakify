@@ -1,12 +1,14 @@
 h1. Wakify
 
-Wakify will be an easy to use web application that let's you wake your computers from anywhere in the world.
+Wakify will be an easy to use web application that let's you wake your computers
+from anywhere in the world.
 
 h2. Requirements
 
 Wakify needs to have access to your system Ping command (part of iputils).
 
-Wakify expects that your system ping to respond appropriately to a command such as the following:
+Wakify expects that your system ping to respond appropriately to a command such
+as the following:
 
 @ping example.com -c 3@
 
@@ -18,13 +20,25 @@ Thanks to Ryan Bates for his nifty_generators and his excellent Railscasts.
 
 h2. Credits
 
-The icons found in the @public/images/tango/@ directory are part of the "Tango Icon Library":http://tango.freedesktop.org/Tango_Icon_Library and have been released into the public domain.
+The icons found in the @public/images/tango/@ directory are part of the "Tango
+Icon Library":http://tango.freedesktop.org/Tango_Icon_Library and have been
+released into the public domain.
 
-The "jQuery":http://jquery.com/ JavaScript library is included in the @public/javascripts/@ directory and it is licensed under both the "GPLv2":http://jquery.com/dev/svn/trunk/jquery/GPL-LICENSE.txt and "MIT":http://jquery.com/dev/svn/trunk/jquery/MIT-LICENSE.txt licenses.
+The "jQuery":http://jquery.com/ JavaScript library is included in the
+@public/javascripts/@ directory and it is licensed under both the
+"GPLv2":http://jquery.com/dev/svn/trunk/jquery/GPL-LICENSE.txt and
+"MIT":http://jquery.com/dev/svn/trunk/jquery/MIT-LICENSE.txt licenses.
 
-The "IE8.js":http://code.google.com/p/ie7-js/ JavaScript library was created byDean Edwards, and it aims to make Internet Explorer (pre-IE8) behave more like a standards compliant browser. It is licensed under a "MIT":http://www.opensource.org/licenses/mit-license.php license.
+The "IE8.js":http://code.google.com/p/ie7-js/ JavaScript library was created
+byDean Edwards, and it aims to make Internet Explorer (pre-IE8) behave more like
+a standards compliant browser. It is licensed under a
+"MIT":http://www.opensource.org/licenses/mit-license.php license.
 
-*Chroma Hash* is a jQuery plugin that acts as a visual helper for password entry.  It was created by "Matt Thompson":http://mattt.me and is licensed under the "MIT":http://www.opensource.org/licenses/mit-license.php license. I'm using a fork created by "Joel Moss":http://codaset.com/joelmoss/ that removes the dependency on jQueryUI.
+*Chroma Hash* is a jQuery plugin that acts as a visual helper for password
+entry. It was created by "Matt Thompson":http://mattt.me and is licensed under
+the "MIT":http://www.opensource.org/licenses/mit-license.php license. I'm using
+a fork created by "Joel Moss":http://codaset.com/joelmoss/ that removes the
+dependency on jQueryUI.
 
 h2. Gems
 
@@ -38,9 +52,14 @@ h2. License
 
 Copyright (C) 2009 Matias Korhonen
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software
-Foundation, either version 3 of the License, or (at your option) any later version.
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with this program. If not, see "gnu.org/licenses":http://www.gnu.org/licenses/
+You should have received a copy of the GNU General Public License along with
+this program. If not, see "gnu.org/licenses":http://www.gnu.org/licenses/
