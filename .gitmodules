@@ -1,0 +1,3 @@
+[submodule "vendor/plugins/launching_soon"]
+	path = vendor/plugins/launching_soon
+	url = git://github.com/Satish/launching_soon.git
