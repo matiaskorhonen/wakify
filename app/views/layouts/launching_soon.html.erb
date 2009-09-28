@@ -22,5 +22,6 @@
         <span>
       </div>
     </div>
+    <%= render:partial => "/layouts/google_analytics" if APP_CONFIG[:ga_enabled] -%>
   </body>
 </html>
