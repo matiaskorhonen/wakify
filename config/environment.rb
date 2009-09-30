@@ -22,6 +22,7 @@ Rails::Initializer.run do |config|
   config.gem "net-ping", :lib => "net/ping"
   config.gem "RedCloth"
   config.gem "Linguistics", :lib => "linguistics"
+  config.gem "redinger-validation_reflection", :lib => "validation_reflection"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

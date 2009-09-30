@@ -1,3 +1,6 @@
 [submodule "vendor/plugins/launching_soon"]
 	path = vendor/plugins/launching_soon
 	url = git://github.com/Satish/launching_soon.git
+[submodule "vendor/plugins/validatious-on-rails"]
+	path = vendor/plugins/validatious-on-rails
+	url = git://github.com/grimen/validatious-on-rails.git

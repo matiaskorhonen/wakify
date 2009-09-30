@@ -35,10 +35,13 @@ The following gems are required to run the application:
 * net-ping
 * RedCloth
 * Linguistics
+* validation_reflection (redinger-validation_reflection)
 
-h2. Launching Soon
+h2. Plugins
 
-The "Launching Soon":http://github.com/vinsol/Launching-Soon/ plugin is included as a git submodule.
+The "Launching Soon":http://github.com/vinsol/Launching-Soon/ plugin is included as a Git submodule and it is MIT licensed.
+
+The "Validatious-on-Rails"http://github.com/grimen/validatious-on-rails/ plugin is also included as a Git submodule and it is also MIT licensed.
 
 h2. License
 
