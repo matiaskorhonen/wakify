@@ -15,6 +15,9 @@ development:
   contact_email: support@wakify.com
   from_email: support@wakify.com
   launching_soon: false
+  adsense: false
+  adsense_client: pub-1234567890123456
+  adsense_ad01: { slot: 1234567890, width: 728, height: 15 }
 
 test:
   domain: test.host
@@ -33,6 +36,9 @@ test:
   contact_email: support@wakify.com
   from_email: support@wakify.com
   launching_soon: false
+  adsense: true
+  adsense_client: pub-1234567890123456
+  adsense_ad01: { slot: 1234567890, width: 728, height: 15 }
   
 production:
   domain: wakify.com
@@ -51,3 +57,6 @@ production:
   contact_email: support@wakify.com
   from_email: support@wakify.com
   launching_soon: true
+  adsense: true
+  adsense_client: pub-1234567890123456
+  adsense_ad01: { slot: 1234567890, width: 728, height: 15 }

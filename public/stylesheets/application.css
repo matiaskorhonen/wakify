@@ -194,6 +194,7 @@ label {
 #footer p {
   margin: 0;
   padding: 2px 10px;
+  border-top: 1px solid #000;
 }
 
 a.accountLink {

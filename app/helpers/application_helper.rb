@@ -20,4 +20,22 @@ module ApplicationHelper
       doc.to_html
     end
   end
+  
+  def adsense(options)
+    ad_client = options[:client]
+    ad_slot = options[:slot]
+    width = options[:width]
+    height = options[:height]
+    
+    return String.new(%{
+      <script type="text/javascript"><!--
+        google_ad_client = \"#{ad_client}\";
+        google_ad_slot = \"#{ad_slot}\";
+        google_ad_width = #{width};
+        google_ad_height = #{height};
+        //-->
+        </script>
+        <script type=\"text/javascript\" src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">
+      </script>})
+  end
 end

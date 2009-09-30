@@ -45,7 +45,9 @@
         
         <%= yield %>
       </div>
+      
       <div id="footer">
+        <%= adsense(:client => APP_CONFIG[:adsense_client], :slot => APP_CONFIG[:adsense_ad01]["slot"], :width => APP_CONFIG[:adsense_ad01]["width"], :height => APP_CONFIG[:adsense_ad01]["height"]) if APP_CONFIG[:adsense] %>
         <p><%= APP_CONFIG[:footer_text]%></p>
       </div>
     </div>
