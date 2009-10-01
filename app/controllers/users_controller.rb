@@ -62,33 +62,25 @@ class UsersController < ApplicationController
   def requests
   end
   
-  # Resend Activation code to the User's email address
-  def resend_activation
+  def send_request
     user = User.find_by_email(params[:email])
     
     if !user.nil?
-      if !user.activated?
-        Mailer.deliver_welcome_email(user)
-        flash[:notice] = "Activation email sent"
-      else
-        flash[:error] = "You already activated your account."
-      end
-    else
-      flash[:error] = "No user account found for that email address"
-    end
-    
-    redirect_to requests_path
-  end
-  
-  # Send a password link to the User's email address
-  def send_password_reset
-    user = User.find_by_email(params[:email])
-    
-    if !user.nil?
-      user.add_password_reset
-      if user.save
-        Mailer.deliver_password_reset_email(user)
-        flash[:notice] = "Reset link sent"
+      if params[:type] == "activation"
+        if !user.activated?
+          Mailer.deliver_welcome_email(user)
+          flash[:notice] = "Activation email sent"
+        else
+          flash[:error] = "You already activated your account."
+        end
+      elsif params[:type] == "password"
+        user.add_password_reset
+        if user.save
+          Mailer.deliver_password_reset_email(user)
+          flash[:notice] = "Reset link sent"
+        else
+          flash[:error] = "An unknown error occured"
+        end
       else
         flash[:error] = "An unknown error occured"
       end
