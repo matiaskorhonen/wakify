@@ -286,3 +286,24 @@ span.address {
 #terms li {
   padding-top: 0.5em;
 }
+
+input, textarea {
+  border: 1px solid #555753;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  padding: 2px 2px 4px 2px;
+}
+
+input.error {
+  border: 1px solid #cc0000;
+}
+
+label.error {
+  color: #cc0000;
+  font-size: 9pt;
+  font-weight: normal;
+}
+
+input[type="submit"], input[type="button"] {
+  padding: 3px 7px;;
+}
