@@ -8,7 +8,7 @@
   Lost your activation link or password? <%= link_to "Request a new one here", requests_path %>.
 </p>
 
-<% form_for @user, :html => {:class => 'validate'} do |f| %>
+<% form_for @user do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :username %><br />
