@@ -47,6 +47,10 @@ class Computer < ActiveRecord::Base
       break if result
     end
     
+    if ip == "127.0.0.1" || ip == "0.0.0.0"
+      result = true
+    end
+    
     return result
   end
   
