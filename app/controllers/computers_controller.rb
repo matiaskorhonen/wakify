@@ -76,5 +76,5 @@ class ComputersController < ApplicationController
     else
       redirect_to :action => "ping_computer", :controller => "ping", :id => params[:computer][:id]
     end
-  end
+  endz
 end

@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   require 'captcha'
   
   include Authentication
-  include LaunchingSoon if APP_CONFIG[:launching_soon]
   
   helper :all
   protect_from_forgery
