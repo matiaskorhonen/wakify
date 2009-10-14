@@ -24,6 +24,8 @@ The icons found in the @public/images/tango/@ directory are part of the "Tango I
 
 The "jQuery":http://jquery.com/ JavaScript library is included in the @public/javascripts/@ directory and it is licensed under both the "GPLv2":http://jquery.com/dev/svn/trunk/jquery/GPL-LICENSE.txt and "MIT":http://jquery.com/dev/svn/trunk/jquery/MIT-LICENSE.txt licenses.
 
+The "jQuery validation plug-in" is included in the @public/javascripts/@ directory and it is also dual licensed under both the "GPL":http://www.gnu.org/licenses/gpl.html and "MIT":http://www.opensource.org/licenses/mit-license.php licenses.
+
 The "IE8.js":http://code.google.com/p/ie7-js/ JavaScript library was created by Dean Edwards, and it aims to make Internet Explorer (pre-IE8) behave more like a standards compliant browser. It is licensed under a "MIT":http://www.opensource.org/licenses/mit-license.php license.
 
 *Chroma Hash* is a jQuery plugin that acts as a visual helper for password entry.  It was created by "Matt Thompson":http://mattt.me and is licensed under the "MIT":http://www.opensource.org/licenses/mit-license.php license. I'm using a fork created by "Joel Moss":http://codaset.com/joelmoss/ that removes the dependency on jQueryUI.
