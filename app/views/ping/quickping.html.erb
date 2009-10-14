@@ -1,5 +1,6 @@
 <% title "Ping " + @host_to_ping.to_s %>
 <p style="color: <%= @result ? "green" : "red" %>">The host is <strong><%= @result ? "up" : "down" %></strong></p>
-<pre>
+<pre class="pingResults">
   <%=h @verbose %>
-</pre>  
+</pre>
+<p><a href="#" id="pingResultsLink" style="display:none;">Show detailed results</a></p>

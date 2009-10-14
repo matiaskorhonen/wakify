@@ -11,6 +11,16 @@ $(document).ready(function() {
     $('#terms').slideDown('slow');
     return false;
   });
+  
+  // Hide the verbose ping results if JS is enabled
+  $(".pingResults").hide();
+  $("#pingResultsLink").show();
+  
+  $("#pingResultsLink").click(function () {
+    $(this).fadeOut('slow');
+    $('.pingResults').slideDown('slow');
+    return false;
+  });
 
   /*  Add Chroma Hash to password fields
       You can generate a new salt using script/console and the following command:
