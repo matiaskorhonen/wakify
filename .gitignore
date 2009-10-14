@@ -12,3 +12,4 @@ tmp/*
 .*.swp
 public/tmp
 *.kpf
+public/javascripts/cache.js
