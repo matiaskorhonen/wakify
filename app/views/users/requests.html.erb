@@ -8,7 +8,7 @@
     <%= text_field_tag "email" %>
   </p>
   <p>
-    <%= select_tag "type", "<option value='password'>Password Reset</option><option value='activation'>Resend activation link</option>" %>
+    <%= select_tag "type", "<option value='password'>Password Reset</option><option value='activation'>Resend activation link</option>".html_safe %>
   </p>
   <p>
     <%= submit_tag "Submit" %>

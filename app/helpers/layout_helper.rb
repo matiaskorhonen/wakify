@@ -36,5 +36,6 @@ module LayoutHelper
     end
     
     xhtml << "</ul>"
+    xhtml.html_safe
   end
 end

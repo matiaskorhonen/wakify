@@ -6,9 +6,10 @@ module ApplicationHelper
     qa = c.generate_qa
     
     xhtml = label_tag("captcha_attempt", qa[:question])
-    xhtml << "<br />"
+    xhtml << "<br />".html_safe
     xhtml << password_field_tag("captcha_attempt")
     xhtml << hidden_field_tag("hashed_answer", qa[:hashed_answer])
+    xhtml.html_safe
   end
   
   # Safe textile helper.
@@ -17,7 +18,7 @@ module ApplicationHelper
     if text && text.respond_to?(:to_s)
       doc = RedCloth.new( text.to_s )
       doc.sanitize_html = true
-      doc.to_html
+      doc.to_html.html_safe
     end
   end
   
@@ -27,8 +28,7 @@ module ApplicationHelper
     width = options[:width]
     height = options[:height]
     
-    return String.new(%{
-      <script type="text/javascript"><!--
+    %{<script type="text/javascript"><!--
         google_ad_client = \"#{ad_client}\";
         google_ad_slot = \"#{ad_slot}\";
         google_ad_width = #{width};
@@ -36,6 +36,6 @@ module ApplicationHelper
         //-->
         </script>
         <script type=\"text/javascript\" src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">
-      </script>})
+      </script>}.html_safe
   end
 end
