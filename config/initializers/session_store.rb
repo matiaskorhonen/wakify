@@ -6,7 +6,7 @@
 # no regular words or you'll be exposed to dictionary attacks.
 ActionController::Base.session = {
   :key         => '_wakify_session',
-  :secret      => '54164f039f22119079a360104ed2f2a7e2ca124d33af58855098983bc4c6ef3c0cb2f2ee5f8f91ec318a21216998e64f8ab5eeed0d2ccb55f75c8cb0e02dbdc6'
+  :secret      => '21ef96d1754dbb7dcfa3c9dd50644a2212e92557be728740333e82778c691dfeb68500d147450198cbeebd05fa899bdb45c4aa2aa74d22a2da77ab851147b3aa'
 }
 
 # Use the database for sessions instead of the cookie-based default,
