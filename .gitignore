@@ -13,3 +13,4 @@ tmp/*
 public/tmp
 *.kpf
 public/javascripts/cache.js
+.bundle

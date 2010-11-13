@@ -51,6 +51,6 @@
         <p><%= APP_CONFIG[:footer_text].html_safe %></p>
       </div>
     </div>
-      <%= render:partial => "/layouts/google_analytics" if APP_CONFIG[:ga_enabled] -%>
+      <%= render :partial => "/layouts/google_analytics" if APP_CONFIG[:ga_enabled] -%>
   </body>
 </html>

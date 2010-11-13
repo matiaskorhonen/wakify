@@ -1,4 +1,4 @@
-require "config/environment"
+require "./config/environment"
 
 use Rails::Rack::LogTailer
 use Rails::Rack::Static
